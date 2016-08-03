@@ -1,0 +1,103 @@
+<extend name="Common:index"/>
+<block name="main">
+	<meta charset="utf-8">
+	<link href="__PUBLIC__/Admin/css/sort.css" rel="stylesheet">
+	<div class="main-content">
+			<div class="breadcrumbs" id="breadcrumbs">
+				<script type="text/javascript">
+					try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+				</script>
+
+				<ul class="breadcrumb">
+					<li>
+						<i class="icon-home home-icon"></i>
+						<a href="#">主页</a>
+					</li>
+
+					<li>
+						<a href="#">分类管理</a>
+					</li>
+					<li class="active">添加分类</li>
+				</ul><!-- .breadcrumb -->
+
+				<div class="nav-search" id="nav-search">
+					<form class="form-search">
+						<span class="input-icon">
+							<input type="text" placeholder="Search ..." name="username" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+							<input type="submit" class="btn btn-primary btn-xs" value="搜索" style="border-radius:3px; height:28px; margin-top:-4px; padding-right:24px;">
+							<i class="icon-search nav-search-icon"></i>
+						</span>
+					</form>
+				</div><!-- #nav-search -->
+			</div>
+
+			<div class="page-content">
+				<div class="page-header">
+					<h1>
+						分类管理
+						<small>
+							<i class="icon-double-angle-right"></i>
+							添加分类
+						</small>
+					</h1>
+				</div><!-- /.page-header -->
+				<div class="row">
+					<div class="col-xs-12">
+						<!-- PAGE CONTENT BEGINS -->
+
+						<form class="form-horizontal" role="form" action="{:U('Admin/Sort/insert')}" method="post" enctype="multipart/form-data">
+							<!-- 一级分类样式 start-->
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 分类名称: </label>
+
+								<div class="col-sm-9">
+									<input type="text" style="width:200px" name="aname" id="form-field-1" placeholder="请输入商品分类名称" class="col-xs-10 col-sm-5" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 父级分类名称: </label>
+
+								<div class="col-sm-9">
+									<select name="parent">
+										<option value="0">-----请----选----择------</option>
+										<foreach name="Sorts" item="vo" >
+                                    	<option value="{$vo['asortid']}">{$vo['aname']}</option>
+                                    	</foreach>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 添加属性: </label>
+								<div class="col-sm-9">
+									<div class="btn-group" data-toggle="buttons">
+									  	<foreach name="asort" item="vo" >
+										  	<label class="btn btn-default"> 
+										    <input type="checkbox" name="{$vo['attrname']}" value="{$vo['id']}"> {$vo['attrname']}&nbsp;
+										  	</label>
+									    </foreach>
+									</div>
+								</div>
+							</div>
+							<div class="sort_clear"></div>
+							<div class="space-4"></div>
+							<div class="clearfix form-actions">
+								<div class="col-md-offset-3 col-md-9">
+									<button class="btn btn-info">
+										<i class="icon-ok bigger-110"></i>
+										<input type="submit" value="Submit" style="border:none;background:none;color:#fff;">
+									</button>
+
+									&nbsp; &nbsp; &nbsp;
+									<button class="btn" type="reset">
+										<i class="icon-undo bigger-110"></i>
+										Reset
+									</button>
+								</div>
+							</div>
+
+							</form>
+						</div><!-- PAGE CONTENT ENDS -->
+					</div><!-- /.col -->
+				</div><!-- /.page-content -->
+		</div><!-- /.main-content -->
+</block>

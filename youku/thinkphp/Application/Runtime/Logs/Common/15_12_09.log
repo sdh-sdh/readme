@@ -1,0 +1,24 @@
+[ 2015-12-09T21:01:06+08:00 ] 127.0.0.1 /index.php/assets/css/buiMain-min.css
+ERR: 无法加载模块:Assets
+
+[ 2015-12-09T21:01:06+08:00 ] 127.0.0.1 /index.php/assets/css/buiDpl-min.css
+ERR: 无法加载模块:Assets
+
+[ 2015-12-09T21:01:07+08:00 ] 127.0.0.1 /index.php/assets/css/bui-min.css
+ERR: 无法加载模块:Assets
+
+[ 2015-12-09T21:07:40+08:00 ] 127.0.0.1 /index.php/assets/js/common/main-min.js
+ERR: 无法加载模块:Assets
+
+[ 2015-12-09T21:12:55+08:00 ] 127.0.0.1 /index.php/assets/js/common/main-min.js
+ERR: 无法加载模块:Assets
+
+[ 2015-12-09T21:28:32+08:00 ] 127.0.0.1 /index.php/main/menu.html
+ERR: 无法加载模块:Main
+
+[ 2015-12-09T21:28:33+08:00 ] 127.0.0.1 /index.php/main/second-menu.html
+ERR: 无法加载模块:Main
+
+[ 2015-12-09T21:29:13+08:00 ] 127.0.0.1 /index.php/main/second-menu.html
+ERR: 无法加载模块:Main
+

@@ -1,0 +1,78 @@
+[ 2015-12-26T20:00:22+08:00 ] ::1 /thinkphp/index.php/Home/User/
+ERR: 非法操作:index
+
+[ 2015-12-26T20:12:12+08:00 ] ::1 /thinkphp/index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001224s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0117s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='12345678901' ) LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002098s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002356s ]
+
+[ 2015-12-26T20:22:43+08:00 ] ::1 /thinkphp/index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000790s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001189s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='12312312312' ) LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001063s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001277s ]
+
+[ 2015-12-26T20:22:50+08:00 ] ::1 /thinkphp/index.php/Home/User/checkRegister.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000824s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0029s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_user` (`phone`,`password`) VALUES ('12312312312','202cb962ac59075b964b07152d234b70') [ RunTime:0.0882s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002099s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002394s ]
+
+[ 2015-12-26T20:34:05+08:00 ] ::1 /thinkphp/index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001013s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001694s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='12312312312' ) LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000671s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000758s ]
+
+[ 2015-12-26T20:34:17+08:00 ] ::1 /thinkphp/index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000658s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001180s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0027s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='12312312312' ) LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000651s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000729s ]
+
+[ 2015-12-26T20:35:02+08:00 ] ::1 /thinkphp/index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001021s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='12312312312' ) LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000671s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000759s ]
+
+[ 2015-12-26T20:38:38+08:00 ] ::1 /thinkphp/index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001138s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='12312312312' ) LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000648s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000734s ]
+
+[ 2015-12-26T20:38:42+08:00 ] ::1 /thinkphp/index.php/Home/User/Index/index
+ERR: 非法操作:Index
+

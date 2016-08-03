@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../Public/Home/css/bootstrap.min.css">
+    <style>
+        .container{
+            width: 1024px;
+        }
+    </style>
+    <title>{$Think.config.title}</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <div class="tab-nav-bar"><s class="tab-nav-arrow arrow-left"></s>
+                <div class="tab-nav-wrapper">
+                    <div class="tab-nav-inner">
+                        <ul class="tab-nav-list" style="width: 140px; left: 0px;">
+                            <li class="bui-nav-tab-item tab-nav-actived" aria-disabled="false" title="收藏管理" style=""
+                                aria-pressed="false"><span class="tab-item-title">收藏管理</span><s
+                                    class="tab-item-close"></s></li>
+                        </ul>
+                    </div>
+                </div>
+                <s class="tab-nav-arrow arrow-right"></s>
+            </div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>标题</th>
+                    <th>内容</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="lyList" item="v">
+                <tr>
+                    <td>{$v.id}</td>
+                    <td>{$v.title}</td>
+                    <td>{$v.content}</td>
+                </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/Home/js/jquery-1.11.3.min.js"></script>
+<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+<script src="../../../../Public/Home/js/jquery-1.11.3.min.js"></script>
+<script src="../../../../Public/Home/js/bootstrap.min.js"></script>
+</body>
+</html>

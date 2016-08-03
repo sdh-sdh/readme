@@ -1,0 +1,144 @@
+<extend name="Sort:control" />
+<block name="asort">
+	<div class="xd-page" data-reactid=".2">
+		<div class="xd-header" data-reactid=".2.0">
+			<h2 class="xd-title" data-reactid=".2.0.0">商品审核已通过</h2>
+			<div class="xd-section">
+				<div class="xd-section-body">
+					<table class="xd-table">
+						<thead>
+							<tr>
+								<th>商品ID</th>
+								<th class="name">商品名</th>
+								<th class="name">分类名</th>
+								<th class="name">价钱</th>
+								<th class="name">图片</th>
+								<th class="name">库存</th>
+								<th class="name">状态</th>
+								<th class="name">操作</th>
+							</tr>
+						</thead>
+						<tbody class="ass">
+						<foreach name="au" item="vo" >
+							<tr id="add">
+								<td>
+									<span class="rank">{$vo['id']}</span>
+								</td>
+								<td style="width:200px">
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['goodname']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['aname']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['nowprice']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													<img src="__ROOT__{$vo.goodpic}" alt="" width="40">
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['stock']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{:getState($vo['state'])}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<a href="{:U('Home/Sort/set',array('id'=>$vo[id]))}" title="设置详细信息" class="btn btn-xs btn-success">
+										<i class="icon-ok bigger-120"></i>
+									</a>
+									<a href="{:U('Home/Sort/argument',array('id'=>$vo[id]))}" title="设置商品参数">
+										<img src="__PUBLIC__/Admin/images/canshu.png" alt="" width="32.4063" height="26">
+									</a>
+									<a href="{:U('Home/Sort/goodedit',array('id'=>$vo[id]))}" title="修改商品状态" class="btn btn-xs btn-info">
+										<i class="icon-edit bigger-120"></i>
+									</a>
+
+									<a href="{:U('Home/Sort/delete',array('id'=>$vo[id]))}" class="btn btn-xs btn-danger" onclick="if(!confirm('确定要删除吗，你确认要删除吗？')){return false;}">
+										<i class="icon-trash bigger-120"></i>
+									</a>
+									
+									<a href="{:U('Home/Sort/det',array('id'=>$vo['id']))}" title="图片上传" class="btn btn-xs btn-warning">
+										<i class="icon-flag  bigger-120"></i>
+									</a>
+								</td>
+							</tr>
+							</foreach>
+							<tr>
+								<td colspan="9"><div class="row"><div class="col-md-5"></div><div id="pages">{$pages}</div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<style type="text/css">
+				     #pages a, #pages span{
+				        background-color: #fff;
+				        border: 1px solid #ddd;
+				        color: #337ab7;
+				        float: left;
+				        line-height: 1.42857;
+				        margin-left: -1px;
+				        padding: 6px 12px;
+				        position: relative;
+				        text-decoration: none;
+				     }  
+				     #pages span{
+				        background-color: #337ab7;
+				        border-color: #337ab7;
+				        color: #fff;
+				        cursor:pointer;
+				        z-index: 2;
+				     }
+				</style>
+			</div>
+		</div>
+	</div>
+</block>

@@ -1,0 +1,14 @@
+<if condition="$l eq 1">
+    <li class="person-center">
+        <a href="{:U('Home/Userinfo/userinfo')}">个人中心</a>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{:U('Home/User/loginOut')}">退出登录</a>
+            </li>
+        </ul>
+    </li>
+
+    <else />
+    <li><a href="{:U('Home/User/login')}">登录</a></li>
+    <li><a href="{:U('Home/user/register')}">注册</a></li>
+</if>

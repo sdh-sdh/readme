@@ -1,0 +1,7 @@
+[ 2016-01-05T19:42:23+08:00 ] ::1 /thinkphp/index.php/Admin/Manager/ajaxCheckName
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000718s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001172s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0053s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `bank_user` LIMIT 1   [ RunTime:0.0005s ]
+

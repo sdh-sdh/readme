@@ -1,0 +1,61 @@
+<extend name="Sort:control" />
+<block name="asort">
+	<div class="xd-page" data-reactid=".2">
+		<div class="xd-header" data-reactid=".2.0">
+			<h2 class="xd-title" data-reactid=".2.0.0">商品分类设置</h2>
+			<a class="xd-btn primary" id="addTr">+新增分类</a>
+			<div class="xd-section">
+				<div class="xd-section-body">
+					<form action="{:U('Home/Sort/add')}" method="post">
+					<table class="xd-table">
+						<thead>
+							<tr style="display:block">
+								<th class="order" style="width:150px">排序</th>
+								<th class="name" style="width:50%">分类名</th>
+								<th class="name" style="width:50%">添加属性</th>
+							</tr>
+						</thead>
+						<tbody class="ass">
+								<tr id="add" style="display:none;">
+								<td style="width:150px">
+									<span class="rank"></span>
+								</td>
+								<td style="width:50%">
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													<form action="{:U('Home/Sort/add')}" method="post">
+													<input type="hidden" name="uid" value="{$Think.session.home.id}">
+													<input class="xd-input" value="" name="aname[]" >
+													<button type="submit" style="width:70px;height:26px;line-height:23px;background:#FFFFFF;border:1px solid #C4C4C4">确定</button>
+													<a class="xd-btn cancel" style="margin-top:-2px;">取消</a>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td style="width:50%" align="right">
+									<div class="form-group">
+										<div class="col-sm-9">
+											<div class="btn-group" data-toggle="buttons">
+											  	<foreach name="asorts" item="vo" >
+												  	<label class="btn btn-default"> 
+												    <input type="checkbox" name="{$vo['attrname']}" value="{$vo['id']}"> {$vo['attrname']}
+												  	</label>
+											    </foreach>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<input type="submit" name="search" value="提交" style="width:928px;">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>

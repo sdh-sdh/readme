@@ -1,0 +1,51 @@
+<div class="row" style="margin: 0">
+    <foreach name="good" item="vo">
+        <div class="media" style="background: white;padding: 4px">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="{$vo.goodpic}" style="width: 64px; height: 64px;">
+            </a>
+            <div class="media-body">
+                <b class="media-heading">{$vo.goodname}</b><br>
+                颜色：{$vo.颜色}，尺码：{$vo.尺码} <br>
+                <span style="color: #C81623">¥{$vo.Price}</span>
+                ×
+                <span>{$vo.num}</span>
+                <span skuid="{$vo.skuid}" data-url="{:U('Home/Cart/delCart')}" class="glyphicon glyphicon-trash pull-right hover-pointer"></span>
+            </div>
+        </div>
+    </foreach>
+</div>
+<a href="{:U('Home/Cart/index')}" id="rcPayBtn" type="button" class="btn btn-danger col-xs-12" style="margin-top: 10px">
+    去购物车结算
+</a>
+<script>
+    /**
+     * 	购物车删除按钮
+     *
+     */
+    $('.glyphicon-trash').on('click', function() {
+        var skuid =$(this).attr('skuid');
+        var url = $(this).attr('data-url');
+        var that = $(this);
+        $.get(url, {skuid: skuid}, function(msg) {
+
+            if (msg == '1') {
+                var a = that.prev().text();
+                $('.numCircle').text(function(i, v){
+                    return parseInt(v)-a;
+                });
+                that.parent().parent().fadeOut().remove();
+                CartNum();
+            }
+        }, 'html');
+    });
+    var CartNum = function(){
+        $('#rcPayBtn').text(function(){
+            var num = $('.numCircle').text();
+            if (num == '0') {
+                return '购物车有个神马啊';
+            }
+        });
+    };
+    CartNum();
+</script>

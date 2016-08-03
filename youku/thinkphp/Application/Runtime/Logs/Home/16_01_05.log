@@ -1,0 +1,142 @@
+[ 2016-01-05T09:12:42+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-05T09:13:38+08:00 ] 127.0.0.1 /index.php/Home/Order/PCode.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001713s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 ) LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp\www\thinkphp\Application\Home\Controller\UserController.class.php 第 65 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp\www\thinkphp\Application\Home\Controller\UserController.class.php 第 65 行.
+
+[ 2016-01-05T09:13:39+08:00 ] 127.0.0.1 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000858s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001379s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 and password='202cb962ac59075b964b07152d234b70' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0536s ]
+SQL: SHOW COLUMNS FROM `bank_order` [ RunTime:0.0096s ]
+SQL: UPDATE `bank_user_details` SET `account`=account-230 WHERE ( uid=13 ) [ RunTime:0.0363s ]
+SQL: UPDATE `bank_user_details` SET `account`=account+230 WHERE ( uid=14 ) [ RunTime:0.0183s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_order` (`source`,`gather`,`time`,`money`,`ordernum`) VALUES ('13','14','1451956419','230','14519563529811') [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `bank_company` [ RunTime:0.0084s ]
+SQL: SELECT `resulturl` FROM `bank_company` WHERE ( uid=14 ) LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002703s ]
+
+[ 2016-01-05T10:52:43+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-05T10:52:50+08:00 ] 127.0.0.1 /index.php/Home/Order/PCode.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001241s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0029s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 ) LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp\www\thinkphp\Application\Home\Controller\UserController.class.php 第 65 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp\www\thinkphp\Application\Home\Controller\UserController.class.php 第 65 行.
+
+[ 2016-01-05T10:52:51+08:00 ] 127.0.0.1 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001996s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 and password='202cb962ac59075b964b07152d234b70' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0029s ]
+SQL: SHOW COLUMNS FROM `bank_order` [ RunTime:0.0027s ]
+SQL: UPDATE `bank_user_details` SET `account`=account-136 WHERE ( uid=13 ) [ RunTime:0.0003s ]
+SQL: UPDATE `bank_user_details` SET `account`=account+136 WHERE ( uid=14 ) [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_order` (`source`,`gather`,`time`,`money`,`ordernum`) VALUES ('13','14','1451962371','136','14519623558655') [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `bank_company` [ RunTime:0.0098s ]
+SQL: SELECT `resulturl` FROM `bank_company` WHERE ( uid=14 ) LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002218s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002463s ]
+
+[ 2016-01-05T10:56:25+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-05T10:56:32+08:00 ] 127.0.0.1 /index.php/Home/Order/PCode.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001148s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001745s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp\www\thinkphp\Application\Home\Controller\UserController.class.php 第 65 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp\www\thinkphp\Application\Home\Controller\UserController.class.php 第 65 行.
+
+[ 2016-01-05T10:56:33+08:00 ] 127.0.0.1 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002102s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 and password='202cb962ac59075b964b07152d234b70' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0037s ]
+SQL: SHOW COLUMNS FROM `bank_order` [ RunTime:0.0024s ]
+SQL: UPDATE `bank_user_details` SET `account`=account-136 WHERE ( uid=13 ) [ RunTime:0.0003s ]
+SQL: UPDATE `bank_user_details` SET `account`=account+136 WHERE ( uid=14 ) [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_order` (`source`,`gather`,`time`,`money`,`ordernum`) VALUES ('13','14','1451962593','136','14519625805662') [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `bank_company` [ RunTime:0.0089s ]
+SQL: SELECT `resulturl` FROM `bank_company` WHERE ( uid=14 ) LIMIT 1   [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003556s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003810s ]
+
+[ 2016-01-05T12:54:02+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-05T12:54:47+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-05T12:55:00+08:00 ] 192.168.122.249 /index.php/Home/Order/PCode.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001137s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001788s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 ) LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Trying to get property of non-object D:\wamp\www\thinkphp\Application\Home\Controller\UserController.class.php 第 65 行.
+NOTIC: [8] Trying to get property of non-object D:\wamp\www\thinkphp\Application\Home\Controller\UserController.class.php 第 65 行.
+
+[ 2016-01-05T12:55:02+08:00 ] 192.168.122.249 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000901s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001427s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 and password='202cb962ac59075b964b07152d234b70' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0024s ]
+SQL: SHOW COLUMNS FROM `bank_order` [ RunTime:0.0029s ]
+SQL: UPDATE `bank_user_details` SET `account`=account-218 WHERE ( uid=13 ) [ RunTime:0.0004s ]
+SQL: UPDATE `bank_user_details` SET `account`=account+218 WHERE ( uid=14 ) [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_order` (`source`,`gather`,`time`,`money`,`ordernum`) VALUES ('13','14','1451969702','218','14519695685311') [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `bank_company` [ RunTime:0.0075s ]
+SQL: SELECT `resulturl` FROM `bank_company` WHERE ( uid=14 ) LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002501s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002807s ]
+
+[ 2016-01-05T22:33:52+08:00 ] 127.0.0.1 /index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000682s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001072s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0031s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='12345678901' ) LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001069s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001227s ]
+

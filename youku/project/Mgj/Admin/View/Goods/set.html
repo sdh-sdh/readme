@@ -1,0 +1,200 @@
+<extend name="Common:index"/>
+<block name="main">
+<style>
+.y_goods_size{float:left; display:inline-block; margin-right:10px; margin-bottom:10px;padding:5px 10px; size:#333; border:1px solid #c4c4c4; background-size:#fff;}
+.y_lable_click{border-size:#ff5555; background:url(__PUBLIC__/admin/images/y_lable.png) no-repeat right bottom; }
+</style>
+	<div class="main-content">
+		<div class="breadcrumbs" id="breadcrumbs">
+			<script type="text/javascript">
+				try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+			</script>
+
+			<ul class="breadcrumb">
+				<li>
+					<i class="icon-home home-icon"></i>
+					<a href="#">主页</a>
+				</li>
+
+				<li>
+					<a href="#">商品管理</a>
+				</li>
+				<li class="active">商品添加</li>
+			</ul><!-- .breadcrumb -->
+
+			<div class="nav-search" id="nav-search">
+				<form class="form-search">
+					<span class="input-icon">
+						<input type="text" placeholder="Search ..." name="username" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+						<input type="submit" class="btn btn-primary btn-xs" value="搜索" style="border-radius:3px; height:28px; margin-top:-4px; padding-right:24px;">
+						<i class="icon-search nav-search-icon"></i>
+					</span>
+				</form>
+			</div><!-- #nav-search -->
+		</div>
+
+		<div class="page-content">
+			<div class="page-header">
+				<h1>
+					商品管理
+					<small>
+						<i class="icon-double-angle-right"></i>
+						商品添加
+					</small>
+				</h1>
+			</div><!-- /.page-header -->
+
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- PAGE CONTENT BEGINS -->
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="table-responsive">
+								<form action="{:U('Admin/Goods/tag')}" method="post" enctype="multipart/form-data">
+								<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+									<tbody>
+										<input type="hidden" name="goodsid" value="{$info[id]}">
+										<tr>
+											<td colspan="1" style="text-align:right;">商品名：</td>
+											<td colspan="3">{$info[goodname]}</td>
+										</tr>
+										
+										<!-- 添加商品 SKU -->
+										<tr>
+											<td colspan="1" style="text-align:right;">SKU设置：</td>
+											<td colspan="3" width="900px">
+												<a href="javascript:" class="y_goods_size">S</a>
+												<a href="javascript:" class="y_goods_size">M</a>
+												<a href="javascript:" class="y_goods_size">L</a>
+												<a href="javascript:" class="y_goods_size">XS</a>
+												<a href="javascript:" class="y_goods_size">XL</a>
+												<a href="javascript:" class="y_goods_size">XXL</a>
+												<a href="javascript:" class="y_goods_size">XXXL</a>
+												<a href="javascript:" class="y_goods_size">均码</a>
+												<a href="javascript:" class="y_goods_size">35</a>
+												<a href="javascript:" class="y_goods_size">36</a>
+												<a href="javascript:" class="y_goods_size">37</a>
+												<a href="javascript:" class="y_goods_size">38</a>
+												<a href="javascript:" class="y_goods_size">39</a>
+												<a href="javascript:" class="y_goods_size">40</a>
+												<a href="javascript:" class="y_goods_size">41</a>
+												<a href="javascript:" class="y_goods_size">42</a>
+												<a href="javascript:" class="y_goods_size">43</a>
+												<a href="javascript:" class="y_goods_size">44</a>
+												<a href="javascript:" class="y_goods_size">45</a>
+											</td>
+										</tr>
+										<tr style="text-align:center;" id="y_size_table">
+											<td style="width:25%;">尺码</td>
+											<td style="width:25%;">库存</td>
+											<td style="width:25%;">价格</td>
+											<td style="width:25%;">颜色</td>
+										</tr>
+										<tr>
+											<td style="text-align:right;"><input type="submit" id="good_submit" class="btn no-border" name="sub" value="Submit" style=""></td>
+											<td colspan="3" >
+												<input class="btn no-border" type="reset" value="Reset">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								</form>
+							</div>
+							<div class="table-responsive">
+								<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+									<tbody>
+										<tr>
+											<th>商品ID</th>
+											<th>价钱</th>
+											<th>库存</th>
+											<th>尺码</th>
+											<th>操作</th>
+										</tr>
+										<foreach name="val" item="v" key="key">
+										<form action="{:U('Home/Sort/sku')}" method="post">
+										<tr>
+											<td>
+												<span class="rank">{$v['id']}</span>
+											</td>
+											<td>
+												<div class="cat-name">
+													<div class="cat-edit">
+														<div class="xd-form-group " >
+															<div class="xd-field">
+																<input type="text" name="price" value="{$v['price']}">
+															</div>
+														</div>
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="cat-name">
+													<div class="cat-edit">
+														<div class="xd-form-group " >
+															<div class="xd-field">
+																<input type="text" name="stock" value="{$v['stock']}">
+															</div>
+														</div>
+													</div>
+												</div>
+											</td>
+											<foreach name="vs[$key]" item="vo" key="k">
+											<td>
+												<div class="cat-name">
+													<div class="cat-edit">
+														<div class="xd-form-group " >
+															<div class="xd-field">
+																{$vo[value]}
+															</div>
+														</div>
+													</div>
+												</div>
+											</td>
+											</foreach>
+
+											<td>
+												<input type="hidden" name="id" value="{$v['id']}">
+												<button class="btn btn-xs btn-info" type="submit"><i class="icon-edit bigger-120"></i></button>
+											</td>
+										</tr>
+										</form>
+										</foreach>
+									</tbody>
+								</table>
+							</div>
+						</div><!-- /span -->
+					</div><!-- /row -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div><!-- /.main-content -->
+	<script type="text/javascript" src="__PUBLIC__/admin/js/jquery.js"></script>
+	<script type="text/javascript">
+		// 定义标签的开始，限制添加标签的个数
+		var labelNum = 1;
+		$('#y_lable_add').click(function(){
+			if(labelNum < 3){
+				var html = '<input type="text" name="tagname[]" style="width:120px;margin-left:20px;" class="col-xs-10 col-sm-5" />';
+				$(this).siblings('input:last').after(html);
+				labelNum++;
+			}
+		});
+		
+		// 定义限制颜色的配套
+		var sizeNum = 0;
+		$('.y_goods_size').toggle(function(){
+			sizeNum++;
+			$(this).addClass('y_lable_click');
+			var size = $(this).html();
+			$('#y_size_table').attr('style','text-align:center;')
+			var html = '<tr style="text-align:center;" id="suk'+sizeNum+'"><td >'+size+'</td><td><input type="text" style="width:100px" name="stock"></td><td><input type="text" name="price" style="width:100px;"></td><td><input type="text" name="5" style="width:100px;"><input type="hidden" name="6" value="'+size+'"></td></tr>';
+			$(this).attr('suk',sizeNum);
+			$(this).parent().parent().siblings(':last').before(html);
+		},function(){
+			$(this).removeClass('y_lable_click');
+			$('#suk'+$(this).attr('suk')).remove();
+			sizeNum--;
+		});
+	</script>
+</block>

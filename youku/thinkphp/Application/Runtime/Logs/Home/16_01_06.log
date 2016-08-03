@@ -1,0 +1,196 @@
+[ 2016-01-06T15:24:15+08:00 ] 192.168.122.28 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-06T15:24:15+08:00 ] 192.168.122.28 /Home/Order/index?phone=12345678901&mima=202cb962ac59075b964b07152d234b70
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `bank_order` WHERE ( gather=14 and ordernum= ) LIMIT 1  
+
+[ 2016-01-06T15:24:45+08:00 ] 192.168.122.28 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-06T15:24:46+08:00 ] 192.168.122.28 /Home/Order/index?phone=12345678901&mima=202cb962ac59075b964b07152d234b70
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `bank_order` WHERE ( gather=14 and ordernum= ) LIMIT 1  
+
+[ 2016-01-06T15:25:39+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-06T15:28:05+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-06T15:30:08+08:00 ] 192.168.122.28 /Home/Order/index?phone=12345678901&mima=202cb962ac59075b964b07152d234b70
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `bank_order` WHERE ( gather=14 and ordernum= ) LIMIT 1  
+
+[ 2016-01-06T15:30:59+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-06T15:31:12+08:00 ] 192.168.122.28 /index.php/Home/Order/PCode.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000671s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001085s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=6227000204020063575 ) LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-01-06T15:31:15+08:00 ] 192.168.122.28 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000954s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001602s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=6227000204020063575 and password='02885d951271d7607bcf342305ad6557' ) LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2016-01-06T15:31:41+08:00 ] 192.168.122.28 /index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001014s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001609s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0044s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='13293210928' ) LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000809s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000890s ]
+
+[ 2016-01-06T15:32:25+08:00 ] 192.168.122.28 /index.php/Home/User/checkRegister.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001438s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001944s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0041s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_user` (`phone`,`password`) VALUES ('13293210928','932ce7899ea02339877342be05af4822') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0033s ]
+SQL: INSERT INTO `bank_user_details` (`uid`,`account`,`level`,`kahao`) VALUES ('26','1000000','1','79851495') [ RunTime:0.0720s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001083s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001242s ]
+
+[ 2016-01-06T15:32:58+08:00 ] 192.168.122.28 /index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001850s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002885s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0038s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='13293210928' ) LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000767s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000852s ]
+
+[ 2016-01-06T15:39:44+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-06T15:40:02+08:00 ] 192.168.122.28 /index.php/Home/Order/PCode.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001016s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001814s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=13293200262 ) LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-01-06T15:40:13+08:00 ] 192.168.122.28 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000903s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001367s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0037s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=13293200262 and password='8739542c06f552d1335ef5270a899cbf' ) LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-01-06T15:40:50+08:00 ] 127.0.0.1 /index.php/Home/User/checkPhone.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000652s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001093s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0042s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone='13293200262' ) LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001073s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001241s ]
+
+[ 2016-01-06T15:40:59+08:00 ] 127.0.0.1 /index.php/Home/User/checkRegister.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000721s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001207s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0036s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_user` (`phone`,`password`) VALUES ('13293200262','e10adc3949ba59abbe56e057f20f883e') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0034s ]
+SQL: INSERT INTO `bank_user_details` (`uid`,`account`,`level`,`kahao`) VALUES ('27','1000000','1','25766794') [ RunTime:0.0725s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002436s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002707s ]
+
+[ 2016-01-06T15:41:13+08:00 ] 192.168.122.28 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001208s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0036s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=13293200262 and password='e10adc3949ba59abbe56e057f20f883e' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0034s ]
+SQL: SHOW COLUMNS FROM `bank_order` [ RunTime:0.0034s ]
+SQL: UPDATE `bank_user_details` SET `account`=account-33 WHERE ( uid=27 ) [ RunTime:0.0002s ]
+SQL: UPDATE `bank_user_details` SET `account`=account+33 WHERE ( uid=14 ) [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_order` (`source`,`gather`,`time`,`money`,`ordernum`) VALUES ('27','14','1452066073','33','14520659804228') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `bank_company` [ RunTime:0.0098s ]
+SQL: SELECT `resulturl` FROM `bank_company` WHERE ( uid=14 ) LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002393s ]
+
+[ 2016-01-06T15:46:12+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2016-01-06T15:46:29+08:00 ] 127.0.0.1 /index.php/Home/Order/PCode.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001145s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0044s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12457896321 ) LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2016-01-06T15:46:30+08:00 ] 127.0.0.1 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000708s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001169s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12457896321 and password='202cb962ac59075b964b07152d234b70' ) LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-01-06T15:46:39+08:00 ] 127.0.0.1 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000758s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001459s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=19874123652 and password='202cb962ac59075b964b07152d234b70' ) LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-01-06T15:46:42+08:00 ] 127.0.0.1 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001658s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002435s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=19874123652 and password='202cb962ac59075b964b07152d234b70' ) LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2016-01-06T15:46:55+08:00 ] 127.0.0.1 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000889s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001489s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0045s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=13293200262 and password='e10adc3949ba59abbe56e057f20f883e' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0045s ]
+SQL: SHOW COLUMNS FROM `bank_order` [ RunTime:0.0033s ]
+SQL: UPDATE `bank_user_details` SET `account`=account-59 WHERE ( uid=27 ) [ RunTime:0.0003s ]
+SQL: UPDATE `bank_user_details` SET `account`=account+59 WHERE ( uid=14 ) [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_order` (`source`,`gather`,`time`,`money`,`ordernum`) VALUES ('27','14','1452066414','59','14520663655779') [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `bank_company` [ RunTime:0.0125s ]
+SQL: SELECT `resulturl` FROM `bank_company` WHERE ( uid=14 ) LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001643s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001844s ]
+
+[ 2016-01-06T15:47:42+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+

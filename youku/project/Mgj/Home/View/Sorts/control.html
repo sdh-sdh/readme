@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>后台首页 - 小店管理后台</title>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/control.css">
+    <block name="css">
+    </block>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css">
+	<script src="__PUBLIC__/Home/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/sort.js"></script>
+	<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+</head>
+<body class=" pace-done" style="background:#e7e8eb">
+	<div id="J_ManageNav" class="xd-manage-nav">
+	    <div class="content xd-fm1200 clearfix">
+	        <a href="" class="logo fl">小店|管理后台</a>
+	        <div class="menu fl">
+	            <a href="" target="_blank">商家社区</a>
+	            <a href="" target="_blank">商家培训</a>
+	            <a href="" target="_blank">入驻市场</a>
+	            <a href="" target="_blank">帮助中心</a>
+	        </div>
+	        <block name="ass">
+	        <div id="J_UserInfo">
+	        	<div class="login fr" data-reactid=".0">
+	        		<a href="" class="face fl" data-reactid=".0.0"><img src="__PUBLIC__/Home/image/tx.jpg" width="40" data-reactid=".0.0.0"></a>
+	        		<div class="info fl" data-reactid=".0.1">
+	        			<p data-reactid=".0.1.0"><a href="" class="msg" target="_blank" data-reactid=".0.1.0.0"></a></p>
+	        			<p data-reactid=".0.1.1"><a href="" data-reactid="{:U('Home/Userinfo/userinfo')}">{$asort['nickname']}</a><span data-reactid=".0.1.1.1"> </span><span class="split" data-reactid=".0.1.1.2">|</span><span data-reactid=".0.1.1.3"> </span><a href="{:U('Home/Sort/loginOut')}" data-reactid=".0.1.1.4">退出</a></p>
+	        		</div>
+	        	</div>
+	        </div>
+	        </block>
+	    </div>
+	</div>
+    <div id="J_ManageBody" class="xd-manage-body">
+        <div class="content xd-fm1200 clearfix">
+            <div id="J_Page" class="xd-manage-content fl">
+            <block name="asort">
+            	<div data-reactid=".2" class="xd-page" style="padding-bottom: 150px;">
+            		<div class="orderinfo-wrap" data-reactid="">
+            			<ul class="clearfix order-list" data-reactid=".2.0.0">
+            				<li class="fl yellowbg" data-reactid=".2.0.0.0">
+            					<a href="" data-reactid=".2.0.0.0.0"><span class="num" data-reactid=".2.0.0.0.0.0">0</span><span data-reactid=".2.0.0.0.0.1">待发货订单</span></a>
+            				</li>
+            				<li class="fl bluebg" data-reactid=".2.0.0.1">
+            					<a href="" data-reactid=".2.0.0.1.0"><span class="num" data-reactid=".2.0.0.1.0.0">0</span><span data-reactid=".2.0.0.1.0.1">待退货退款订单</span></a>
+            				</li>
+            				<li class="fl greenbg" data-reactid=".2.0.0.2">
+            					<a href="" data-reactid=".2.0.0.2.0"><span class="num" data-reactid=".2.0.0.2.0.0">0</span><span data-reactid=".2.0.0.2.0.1">待维权订单</span></a>
+            				</li>
+            			</ul>
+            		</div>
+            		<div class="notice-info clearfix" data-reactid=".2.1">
+            			<div class="image-slide-wrap fl" data-reactid=".2.1.0">
+            				<div class="image-slide" style="width:560px;height:180px;" data-reactid=".2.1.0.0">
+								<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				                    <ol class="carousel-indicators">
+				                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+				                        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+				                    </ol>
+				                    <div class="carousel-inner">
+				                        <div class="item active">
+				                            <img src="__PUBLIC__/Home/image/lun.jpg" alt="...">
+				                        </div>
+				                        <div class="item">
+				                            <img src="__PUBLIC__/Home/image/lun1.jpg" alt="...">
+				                        </div>
+				                        <div class="item">
+				                            <img src="__PUBLIC__/Home/image/lun3.jpg" alt="...">
+				                        </div>
+				                        <div class="item">
+				                            <img src="__PUBLIC__/Home/image/lun4.jpg" alt="...">
+				                        </div>
+				                        <div class="item">
+				                            <img src="__PUBLIC__/Home/image/lun5.jpg" alt="...">
+				                        </div>
+				                    </div>
+				                    <a class="left carousel-control" href="#carousel-example-generic"
+				                       data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+				                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span>
+				                	</a>
+                				</div>
+            				</div>
+            			</div>
+            			<div class="news xd-panel fl" data-reactid=".2.1.1">
+            				<div class="xd-panel-header" data-reactid=".2.1.1.0">
+            					<h2 class="xd-title" data-reactid=".2.1.1.0.0">最新公告</h2>
+            					<h1 class="xd-title more-tit" data-reactid=".2.1.1.0.1"><a href="" data-reactid=".2.1.1.0.1.0">更多</a></h1>
+            				</div>
+            				<div class="list xd-panel-body" data-reactid=".2.1.1.1">
+            					<p>
+            						<a href="" target="_blank" data-reactid=".2.1.1.1.0.0"><span data-reactid=".2.1.1.1.0.0.0">1</span><span data-reactid=".2.1.1.1.0.0.1">. </span><span data-reactid=".2.1.1.1.0.0.2">关于针对买呗订单收取交易服务费的通知</span></a>
+            					</p>
+            					<p>
+            						<a href="" target="_blank" data-reactid=".2.1.1.1.1.0"><span data-reactid=".2.1.1.1.1.0.0">2</span><span data-reactid=".2.1.1.1.1.0.1">. </span><span data-reactid=".2.1.1.1.1.0.2">小店后台功能更新公告（2015.12.11)</span></a>
+            					</p>
+            					<p>
+            						<a href="" target="_blank" data-reactid=".2.1.1.1.2.0"><span data-reactid=".2.1.1.1.2.0.0">3</span><span data-reactid=".2.1.1.1.2.0.1">. </span><span data-reactid=".2.1.1.1.2.0.2">虚假交易用券商家处理办法</span></a>
+            					</p>
+            					<p>
+            						<a href="" target="_blank" data-reactid=".2.1.1.1.3.0"><span data-reactid=".2.1.1.1.3.0.0">4</span><span data-reactid=".2.1.1.1.3.0.1">. </span><span data-reactid=".2.1.1.1.3.0.2">关于小店app分销功能暂时关闭的公告</span></a>
+            					</p>
+            					<p>
+            						<a href="" target="_blank" data-reactid=".2.1.1.1.4.0"><span data-reactid=".2.1.1.1.4.0.0">5</span><span data-reactid=".2.1.1.1.4.0.1">. </span><span data-reactid=".2.1.1.1.4.0.2">关于单交易日理财超额提现问题的解决方案</span></a>
+            					</p>
+            				</div>
+            			</div>
+            		</div>
+            		<div class="xd-panel data-income-wrap" data-reactid=".2.2">
+            			<div class="xd-panel-body" data-reactid=".2.2.0">
+            				<ul class="data-income-info clearfix" data-reactid=".2.2.0.0">
+            					<li class="s" data-reactid=".2.2.0.0.0">
+            						<span data-reactid=".2.2.0.0.0.0">今日成交金额：</span>
+            						<p class="money" data-reactid=".2.2.0.0.0.1">
+            							<span class="num h" data-reactid=".2.2.0.0.0.1.0">0</span><span data-reactid=".2.2.0.0.0.1.1">元</span>
+            						</p>
+            					</li>
+            					<li class="s" data-reactid=".2.2.0.0.1">
+            						<span data-reactid=".2.2.0.0.1.0">近30天成交金额：</span>
+            						<p class="money" data-reactid=".2.2.0.0.1.1">
+            							<span class="num h" data-reactid=".2.2.0.0.1.1.0">0</span><span data-reactid=".2.2.0.0.1.1.1">元</span>
+            						</p>
+            						<div class="data-tip" data-reactid=".2.2.0.0.1.2">
+            							<p data-reactid=".2.2.0.0.1.2.0"><span class="icon" data-reactid=".2.2.0.0.1.2.0.0">?</span></p>
+            							<div class="data-tip-wrap" data-reactid=".2.2.0.0.1.2.1">
+            								<ul class="data-tip-list" data-reactid=".2.2.0.0.1.2.1.0">
+            									<li data-reactid=".2.2.0.0.1.2.1.0.0">
+            										<p data-reactid=".2.2.0.0.1.2.1.0.0.0">今日成交金额：今日实时成交金额</p>
+            										<p data-reactid=".2.2.0.0.1.2.1.0.0.1">近30天成交金额：从昨天开始，近30天的累计成交金额（不包括今天）</p>
+            									</li>
+            								</ul>
+            							</div>
+            						</div>
+            					</li>
+            					<li class="w" data-reactid=".2.2.0.0.2">
+            						<img src="__PUBLIC__/Home/image/hj.png" alt="" data-reactid=".2.2.0.0.2.0">
+            						<p data-reactid=".2.2.0.0.2.1">近30天都没有收入进账啦，快去发商品赚钱吧</p>
+            					</li>
+            				</ul>
+            			</div>
+            		</div>
+            		<div class="xd-panel data-indicator-wrap" data-reactid=".2.3">
+            			<div class="xd-panel-header" data-reactid=".2.3.0">
+            				<h2 class="xd-title" data-reactid=".2.3.0.0">昨日数据指标</h2>
+            			</div>
+            			<div class="xd-panel-body" data-reactid=".2.3.1">
+            				<ul class="data-info-wrap clearfix" data-reactid=".2.3.1.0">
+            					<li data-reactid=".2.3.1.0.0">
+            						<span data-reactid=".2.3.1.0.0.0">新增粉丝数</span>
+            						<span class="num" data-reactid=".2.3.1.0.0.1">0</span>
+            					</li>
+            					<li data-reactid=".2.3.1.0.1">
+            						<span data-reactid=".2.3.1.0.1.0">总粉丝数</span>
+            						<span class="num" data-reactid=".2.3.1.0.1.1">0</span>
+            					</li>
+            					<li data-reactid=".2.3.1.0.2">
+            						<span data-reactid=".2.3.1.0.2.0">新增喜欢数</span>
+            						<span class="num" data-reactid=".2.3.1.0.2.1">0</span>
+            					</li>
+            					<li data-reactid=".2.3.1.0.3">
+            						<span data-reactid=".2.3.1.0.3.0">30天新品/30天上新</span>
+            						<span class="num" data-reactid=".2.3.1.0.3.1">0/0</span>
+            					</li>
+            					<li data-reactid=".2.3.1.0.4">
+            						<span data-reactid=".2.3.1.0.4.0">成交订单数</span>
+            						<span class="num" data-reactid=".2.3.1.0.4.1">0</span>
+            					</li>
+            					<li data-reactid=".2.3.1.0.5">
+            						<span data-reactid=".2.3.1.0.5.0">成交金额</span>
+            						<span class="num h" data-reactid=".2.3.1.0.5.1">0</span>
+            					</li>
+            					<li data-reactid=".2.3.1.0.6">
+            						<span data-reactid=".2.3.1.0.6.0">访客数</span>
+            						<span class="num" data-reactid=".2.3.1.0.6.1">0</span>
+            					</li>
+            					<li data-reactid=".2.3.1.0.7">
+            						<span data-reactid=".2.3.1.0.7.0">浏览量</span>
+            						<span class="num" data-reactid=".2.3.1.0.7.1">0</span>
+            					</li>
+            				</ul>
+            			</div>
+            			<ul class="bannerlist-wrap clearfix" data-reactid=".2.5">
+            				<li>
+            					<a href=""><img src="__PUBLIC__/Home/image/1.png" alt=""></a>
+            				</li>
+            				<li>
+            					<a href=""><img src="__PUBLIC__/Home/image/2.jpg" alt=""></a>
+            				</li>
+            				<li>
+            					<a href=""><img src="__PUBLIC__/Home/image/3.png" alt=""></a>
+            				</li>
+            			</ul>
+            		</div>
+            		</div>
+            		</block>
+            	</div>
+            	<block name="arr">
+				<div id="J_ManageSlide" class="xd-manage-slide fl">
+                    <div class="box">
+                    	<h1>信息总览</h1>
+                		<ul>
+                            <li><a href="{:U('Home/Sort/control')}" class="c" style="color:white;">后台首页</a></li>
+                            <li><a href="">店铺星级</a></li>
+                            <li><a href="">开店指南</a></li>
+            			</ul>
+                	</div>
+                    <div class="box">
+                    	<h1>交易管理</h1>
+            			<ul>
+	                        <li><a href="">订单管理</a></li>
+	                        <li><a href="">退货退款管理</a></li>
+	                        <li><a href="">评价管理</a></li>
+	                        <li><a href="">地址库管理</a></li>
+	                        <li><a href="">邮费设置</a></li>
+	                        <li><a href="">维权管理</a></li>
+	                        <li><a href="">举报管理</a></li>
+                        </ul>
+                	</div>
+                    <div class="box">
+                    	<h1>商品管理</h1>
+                    	<ul>
+	                        <li><a href="">出售中</a></li>
+	                        <li><a href="{:U('Home/Sort/entrepot')}">仓库中</a></li>
+	                        <li><a href="">审核中的商品</a></li>
+	                        <li><a href="">审核未通过</a></li>
+	                        <li><a href="{:U('Home/Sort/asort')}">商品分类设置</a></li>
+                            <li><a href="{:U('Home/Sort/store')}">商品分类列表</a></li>
+	                        <li><a href="{:U('Home/Sort/set')}">商品属性设置</a></li>
+                   		</ul>
+                	</div>
+                    <div class="box">
+                    	<h1>资金管理</h1>
+                    	<ul>
+                            <li><a href="">我的钱包</a></li>
+                        </ul>
+                	</div>
+                    <div class="box">
+                    	<h1>蘑菇街店铺设置</h1>
+                    	<ul>
+                            <li><a href="">子账号管理</a></li>
+                            <li><a href="">基础设置</a></li>
+                            <li><a href="">买家黑名单</a></li>
+                            <li><a href="">保障服务</a></li>
+                            <li><a href="">主页设置</a></li>
+                        </ul>
+                	</div>
+    			</div>
+        	</div>
+    </block>
+    	</div>
+    </div>
+    <div id="J_ManageFooter" class="xd-manage-footer">
+        <div class="content xd-fm1200">
+            <div class="footer-top-line clearfix">
+                <div class="footer-download-app fl">
+                    <div class="footer-app-icon clearfix">
+                        <span class="app-icon"></span>
+                        <span class="app-title">手机轻松管理店铺</span>
+                    </div>
+                    <p class="through-line"></p>
+                    <p class="footer-app-tips">下载小店APP</p>
+                </div>
+                <div class="footer-barcode-link fl">
+                    <div class="clearfix">
+                        <div class="footer-barcode fl"></div>
+                        <div class="footer-app-link fl">
+                            <a class="app-link" target="_blank">iPhone下载</a>
+                            <a class="apk-link" href="" target="_blank">Android下载</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-wechat-service fl">
+                    <div class="clearfix">
+                        <div class="footer-sj-qrcode fl"></div>
+                        <div class="footer-app-link fl">
+                            <p>商家服务微信公众号</p>
+                            <p>搜索微信号：mogujieSJ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-line clearfix">
+                <div class="footer-bottom-link fl">
+                    <div class="bottom-link-detail clearfix">
+                        <a class="bottom-link1 fl" href="" target="_blank">关于小店</a><a class="bottom-link2 fl" href="" target="_blank">用户协议</a><a class="bottom-link3 fl" href="" target="_blank">意见反馈</a><a class="bottom-link4 fl" href="" target="_blank">帮助中心</a>
+                    </div>
+                    <div class="bottom-link-title">
+                        ©2014-2015 Mogujie.com 杭州卷瓜网络有限公司
+                    </div>
+                </div>
+                <div class="footer-certify fr">
+                    营业执照注册号：330106000129004 | 增值电信业务经营许可证：浙B2-2011034 | ICP备案号：浙ICP备10044327号-3
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

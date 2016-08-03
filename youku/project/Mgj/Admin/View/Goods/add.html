@@ -1,0 +1,115 @@
+<extend name="Common:index"/>
+<block name="main">
+	<div class="main-content">
+		<div class="breadcrumbs" id="breadcrumbs">
+			<script type="text/javascript">
+				try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+			</script>
+
+			<ul class="breadcrumb">
+				<li>
+					<i class="icon-home home-icon"></i>
+					<a href="#">主页</a>
+				</li>
+
+				<li>
+					<a href="#">商品管理</a>
+				</li>
+				<li class="active">商品添加</li>
+			</ul><!-- .breadcrumb -->
+
+			<div class="nav-search" id="nav-search">
+				<form class="form-search">
+					<span class="input-icon">
+						<input type="text" placeholder="Search ..." name="username" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+						<input type="submit" class="btn btn-primary btn-xs" value="搜索" style="border-radius:3px; height:28px; margin-top:-4px; padding-right:24px;">
+						<i class="icon-search nav-search-icon"></i>
+					</span>
+				</form>
+			</div><!-- #nav-search -->
+		</div>
+
+		<div class="page-content">
+			<div class="page-header">
+				<h1>
+					商品管理
+					<small>
+						<i class="icon-double-angle-right"></i>
+						商品添加
+					</small>
+				</h1>
+			</div><!-- /.page-header -->
+
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- PAGE CONTENT BEGINS -->
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="table-responsive">
+								<form action="{:U('Admin/Goods/insert')}" method="post" enctype="multipart/form-data">
+								<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+									<tbody>
+										<tr>
+											<td style="text-align:right;">商品分类：</td>
+											<td>
+												<select class="sort_lev" name="asortid">
+													<option value="0" >请选择分类</option>
+													<foreach name="Sort" item="vo">
+														<option value="{$vo.asortid}">{$vo.aname}</option>
+													</foreach>
+												</select>
+												<select class="sort_lev" name="state">
+													<option value="0">请选择分类</option>
+													<foreach name="br" item="v">
+														<option value="{$v.id}">{$v.name}</option>
+													</foreach>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">商品名：</td>
+											<td><input type="text" name="goodname" id="form-field-1" placeholder="goodname" class="col-xs-10 col-sm-5" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">商品title：</td>
+											<td><input type="text" name="title" id="form-field-1" placeholder="goodname" class="col-xs-10 col-sm-5" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">价钱：</td>
+											<td><input type="text" name="nowprice" id="form-field-2" placeholder="price" class="col-xs-10 col-sm-5" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">展示图片：</td>
+											<td><input type="file" name="goodpic"  placeholder="展示图片" class="col-xs-10 col-sm-5" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">商品描述：</td>
+											<td><textarea name="describe" cols="50" rows="5"></textarea></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">审核：</td>
+											<td>
+												<select name="audit">
+													<option value="0">审核中</option>
+													<option value="1">审核已通过</option>
+													<option value="2">审核失败</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align:right;"><input type="submit" class="btn no-border" value="Submit" style=""></td>
+											<td>
+												<input class="btn no-border" type="reset" value="Reset">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								</form>
+							</div><!-- /.table-responsive -->
+						</div><!-- /span -->
+					</div><!-- /row -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div><!-- /.main-content -->
+</block>

@@ -1,0 +1,53 @@
+<extend name="Sort:control" />
+<link href="__PUBLIC__/Admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/assets/css/font-awesome.min.css" />
+<block name="asort">
+    <div class="main-content" style="width:1200px;float:right;margin:100px -290px;">
+        <div class="page-content">
+            <div class="row">
+                <div class="col-xs-10">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <div class="table-responsive">
+                                <form action="{:U('Home/Sort/argedit')}" method="post" enctype="multipart/form-data">
+                                <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                                    <tbody>
+                                        <if condition="$ass eq 1">
+                                        <input type="hidden" name="goodsid" value="{$args.goodsid}">
+                                        <elseif condition="$ass eq 0"/>
+                                        <input type="hidden" name="goodsid" value="{$id}">
+                                        </if>
+                                        <tr>
+                                            <td><input type="text" name="num1" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num1}" /><div class="col-xs-1"></div><input type="text" name="num2" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num2}" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="num3" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num3}" /><div class="col-xs-1"></div><input type="text" name="num4" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num4}" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="num5" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num5}" /><div class="col-xs-1"></div><input type="text" name="num6" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num6}" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="num7" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num7}" /><div class="col-xs-1"></div><input type="text" name="num8" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num8}" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="num9" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num9}" /><div class="col-xs-1"></div><input type="text" name="num10" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num10}" /></td>
+                                        <tr>
+                                            <td><input type="text" name="num11" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num11}" /><div class="col-xs-1"></div><input type="text" name="num12" id="form-field-1" class="col-xs-10 col-sm-5" value="{$args.num12}" /></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td><div class="col-xs-4"></div><input type="submit" class="btn no-border" name="sub1" value="提交">　　　<input type="reset" class="btn no-border" value="重置"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- <input type="hidden" name="id" value="{$user['id']}"> -->
+                                </form>
+                            </div><!-- /.table-responsive -->
+                        </div><!-- /span -->
+                    </div><!-- /row -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+    <!-- /.main-content -->
+</block>

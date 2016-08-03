@@ -1,0 +1,284 @@
+<extend name="Index:Index" />
+<block name="title">
+    <title>蘑菇街 - 我的买手街！</title>
+</block>
+<block name="css">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/sort.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/collect.css">
+</block>
+<block name="script">
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/sort.js"></script>
+
+	<script type="text/javascript">
+        //取消收藏店铺
+		$('.cancel').click(function(){
+			 var uid = "{$Think.session.home.id}";
+			 var fav = $(this);
+             if(uid){
+                var id=fav.attr('data-id');
+                $.ajax({
+                    url:"{:U('Home/Collect/qixiao')}",  //请求地址
+                    type:"post",        //请求方式
+                    data:{id:id},//发送数据
+                    async:true,         
+                    dataType:"json",    //响应数据格式
+                    success:function(data){ //成功回调函数
+                        if(data==1){
+                        	fav.parent().remove();
+                            window.location.reload();
+                        }else{
+                            alert('取消失败');
+                        }
+                    },
+                    error:function(){   //失败回调函数
+                        alert("ajax请求失败!");
+                    }   
+                });
+            }else{
+                location.href="{:U('Home/User/login')}"
+            }
+		});
+        //收藏选项卡
+        $('.nav_ctrl').find('li').click(function(){
+            var dta = $(this).attr('data');
+            if(dta=='fav_s'){
+                $('#fav_d').hide();
+                $('#fav_z').hide();
+                $('#fav_s').show();
+            }else if(dta=='fav_d'){
+                $('#fav_d').show();
+                $('#fav_s').hide();
+                $('#fav_z').hide();
+            }else{
+                $('#fav_z').show();
+                $('#fav_d').hide();
+                $('#fav_s').hide();
+            }
+            $(this).addClass('on').siblings().removeClass('on');
+        });
+
+        //取消商品收藏
+        $('.fav_num').click(function(){
+            var uid = "{$Think.session.home.id}";
+            var fav = $(this);
+            if(uid){
+                var id=fav.attr('data-id');
+                $.ajax({
+                    url:"{:U('Home/Collect/quxiao')}",  //请求地址
+                    type:"post",        //请求方式
+                    data:{id:id},//发送数据
+                    async:true,         
+                    dataType:"json",    //响应数据格式
+                    success:function(data){ //成功回调函数
+                        if(data==1){
+                            fav.parent().parent().remove();
+                        }else{
+                            alert('取消失败');
+                        }
+                    },
+                    error:function(){   //失败回调函数
+                        alert("ajax请求失败!");
+                    }   
+                });
+            }else{
+                location.href="{:U('Home/User/login')}"
+            }
+        })
+	</script>
+</block>
+<block name="top">
+	<div id="header" class="header_2015">
+		<div class="wrap clearfix">
+			<a href="{:U('Home/Index/index')}" class="home fl">蘑菇街首页</a>
+			<ul class="header_top" >
+            <if condition="empty($_SESSION['home'])">
+				<li class="s1 show-nologin has_line"><a rel="nofollow" href="">注册</a></li>
+				<li class="s1 show-nologin has_line"><a rel="nofollow" href="" style="padding-left:10px;">登录</a></li>
+            <else/>
+                <li class="s1 show-nologin has_line"><a rel="nofollow" href="{:U('Home/Userinfo/userinfo')}" style="color:red">您好：{$sort['nickname']}</a></li>
+                <li class="s1 show-nologin has_line"><a rel="nofollow" href="{:U('Home/User/loginOut')}">注销</a></li>
+            </if>
+				<li class="s1 has_line "><a href="{:U('Home/Userinfo/order')}" target="_blank" class="text display_u" ref="nofollow" style="padding-left:10px;">我的订单</a></li>
+				<li class="s1 has_line has_icon custom_item css">
+                	<a rel="nofollow" href="" style="padding-left:10px;" target="_blank">客户服务</a>
+                	<i class="icon_delta"></i>
+                	<ol class="ext_mode sss" style="display:none;">
+                    	<li class="s2"><a target="_blank" rel="nofollow" href="">联系合作</a></li>
+                    	<li class="s2"><a rel="nofollow" href="" target="_blank">帮助</a></li>
+                	</ol>
+            	</li>
+            	<li class="s1 has_line myxiaodian"><a href="{:U('Home/Sort/control')}" ref="nofollow" target="_blank" class="text display_u">我的小店</a>
+            </li>
+			</ul>
+		</div>
+	</div>
+</block>
+<block name="fixed-top-search">
+</block>
+<block name="header">
+
+</block>
+<block name="indexNavbar">
+	
+</block>
+<block name="main">
+	<div class="wrap">
+		<div class="attention_nav">
+		    <div class="nav_container clearfix">
+		        <span class="attention_logo">我的收藏</span>
+		        <ul class="nav_ctrl">
+		            <li class="on" data="fav_d"><a href="javascript:;" rel="nofollow">收藏的小店</a></li>
+                    <li class="os" data="fav_s"><a href="javascript:;">收藏的商品</a></li>
+		            <li class="os" data="fav_z"><a href="javascript:;">浏览足迹</a></li>
+		        </ul>
+		    </div>
+		</div>
+        <if condition="$_GET['state'] eq 1">
+		<div class="wrap clearfix was" id="fav_d" style="display:none;">
+        <elseif condition="$_GET['state'] eq 3"/>
+        <div class="wrap clearfix was" id="fav_d" style="display:none;">
+        <else/>
+        <div class="wrap clearfix was" id="fav_d">
+        </if>
+			<div class="attention_list">
+				<div class="fixedbox fixed">
+					<div class="result_list">
+                    	<ul class="list" style="height:400px;">
+                		<foreach name="good" item="vo">
+                            <li style="position:relative" class="clearfix coll" data-id="313" data-shopid="14rgy">
+                                <a href="/index.php/Home/Sorts/index/uid/{$vo.uid}" class="hdimg" target="_blank" rel="nofollow" data-ptp-idx="32">
+                                	<img src="__ROOT__/{$vo['userpic']}" alt="{$vo['goodname']}">
+                                </a>
+                                <div class="detail">
+                                    <h4>{$vo['goodname']}</h4>
+                                    <p>上新：<span>{$vo['num']}</span></p>
+                                     <if condition="$vo['num'] neq 0">
+                                    <p>最近更新：{:date('Y-m-d',$vo['goodtime'])}</p>
+                                <else/>
+                                    <p>最近更新：{:date('Y-m-d',$vo['time'])}</p>
+                                </if>
+                                </div>
+                                <a class="cancel" href="javascript:;" rel="nofollow" data-id="{$vo['id']}">取消收藏</a>
+                            </li>
+                        </foreach>
+                        </ul>
+                	</div>
+				</div>
+			</div>
+            <div class="imagewall_wrap" style="min-height: 407px;">
+                <div id="imagewall_good" class="shop_show">
+                    <div style="height:20px;"></div>
+                <foreach name="datas" item="vo">
+                <if condition="$vo['goodtime'] neq null"> 
+                    <div class="shop_item"> 
+                        <div class="shop_msg clearfix">
+                            <h4 class="shop_name">{$vo.name}</h4>
+                            <span>最近更新：{:date('Y-m-d',$vo['goodtime'])}</span> 
+                        </div> 
+                        <div class="image_wall clearfix"> 
+
+                        <foreach name="vo.data" item="v"> 
+                            <div class="iwf"> 
+                                <a href="{:U('Home/Detail/index',array('id'=>$v['id']))}" rel="nofollow" class="img" target="_blank">
+                                    <img class="fade-in" alt="优质版小香风针织长袖毛衣+印花包臀裙套装" src="__ROOT__{$v.goodpic}">
+                                </a>
+                                <p class="title">{$v.goodname}</p> 
+                                <div class="goods_info"> 
+                                    <b class="price_info"><i>￥</i>{$v.nowprice}</b> 
+                                    <span class="update_date">{:date('Y-m-d',$v['goodtime'])}更新</span> 
+                                </div> 
+                            </div> 
+                        </foreach> 
+                        </div> 
+                        <div class="icon"></div>
+                    </div>
+                    <else/>
+                    </if>
+                    </foreach>
+                </div>  
+            </div>
+		</div>
+    <if condition="$_GET['state'] eq 2">
+        <div class="my_like_wrap" style="display:none" id="fav_s">
+    <elseif condition="$_GET['state'] eq 3"/>
+        <div class="my_like_wrap" style="display:none" id="fav_s">
+    <elseif condition="empty($_GET['state'])"/>
+        <div class="my_like_wrap" style="display:none" id="fav_s">
+    <else/>
+        <div class="my_like_wrap" id="fav_s">
+    </if>
+            <ul class="my_like_filter clearfix">
+                <li><a class="on" href="/active/favs" rel="nofollow"><span>全部商品</span></a></li>
+            </ul>
+            <div class="my_like_content">
+                <div class="my_like_sections clearfix">
+                <foreach name="shops" item="v">
+
+                    <div class="my_like_section" style="min-height:370px;">
+                        <a href="/index.php/Home/Detail/index/id/{$v.id}" class="img" target="_blank" rel="nofollow">
+                            <img class="lazy" data-original="http://s18.mogucdn.com/p1/151119/18v7bj_ifrtcnbzge4gcnlggqzdambqhayde_640x960.jpg_225x999.jpg" alt="{$v.goodname}" src="__ROOT__{$v.pic}" style="display: inline;">
+                        </a>
+                        <div class="info_wrap">
+                            <p class="base_info clearfix">
+                                <a class="title" href="" target="_blank">{$v.goodname}</a>
+                            </p>
+                            <p class="price_info clearfix">
+                                <span class="n_p">￥{$v.nowprice}</span>
+                            </p>
+                            <span class="fav_num" data-tradeitemid="18ghcv6" data-id="{$v['id']}" data-faved="true"><i class="faved"></i>{$v.collect}</span>
+                        </div>
+                    </div>
+                    </foreach>
+                </div>
+                <div class="pagination pb30"></div>
+            </div>
+        </div>
+    <if condition="$_GET['state'] eq 2">
+        <div class="my_like_wrap" style="display:none" id="fav_z">
+    <elseif condition="$_GET['state'] eq 1"/>
+        <div class="my_like_wrap" style="display:none" id="fav_z">
+    <elseif condition="empty($_GET['state'])"/>
+        <div class="my_like_wrap" style="display:none" id="fav_z">
+    <else/>
+        <div class="my_like_wrap" id="fav_z">
+    </if>
+            <ul class="my_like_filter clearfix">
+                <li><a class="on" href="/active/favs" rel="nofollow"><span>全部商品</span></a></li>
+            </ul>
+             
+            <div class="his_wrap">
+                <div class="his_section">
+                <foreach name="arr" item="v" key="k">
+                    <if condition="$k eq date('Y-m-d')">
+                        <h3 class="section_title first_title clearfix"><b>今天</b><span>
+                        共浏览{:count($v)} 件商品</span></h3>
+                    <else/>
+                        <h3 class="section_title first_title clearfix"><b>{$k}</b><span>共浏览{:count($v)} 件商品</span></h3>
+                   </if>
+                    <div class="my_like_content">
+                        <div class="my_like_sections clearfix">
+                            <foreach name="v" item="vo">
+                                <div class="my_like_section" style="min-height:370px;">
+                                    <a href="/index.php/Home/Detail/index/id/{$vo.goodid}" class="img" target="_blank" rel="nofollow">
+                                        <img class="lazy" data-original="http://s18.mogucdn.com/p1/151119/18v7bj_ifrtcnbzge4gcnlggqzdambqhayde_640x960.jpg_225x999.jpg" alt="{$vo.goodname}" src="__ROOT__{$vo.pic}" style="display: inline;">
+                                    </a>
+                                    <div class="info_wrap">
+                                        <p class="base_info clearfix">
+                                            <a class="title" href="" target="_blank">{$vo.goodname}</a>
+                                        </p>
+                                        <p class="price_info clearfix">
+                                            <span class="n_p">￥{$vo.price}</span>
+                                        </p>
+                                        <span class="fav_num1" data-tradeitemid="18ghcv6" data-id="{$v['id']}" data-faved="true"><i class="faved1"></i>{$vo.collect}</span>
+                                    </div>
+                                </div>
+                            </foreach>
+                        </div>
+                    </div>
+                      </foreach>
+                </div>
+            </div>
+        </div>
+	</div>
+</block>

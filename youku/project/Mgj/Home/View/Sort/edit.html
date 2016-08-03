@@ -1,0 +1,46 @@
+<extend name="Sort:control" />
+<block name="asort">
+	<div class="xd-page" data-reactid=".2">
+		<div class="xd-header" data-reactid=".2.0">
+			<h2 class="xd-title" data-reactid=".2.0.0">商品分类修改</h2>
+			<div class="xd-section">
+				<div class="xd-section-body">
+					<table class="xd-table">
+						<thead>
+							<tr>
+								<th>分类ID</th>
+								<th class="name">分类名</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+
+						<tbody class="ass">
+						<form action="{:U('Home/Sort/update')}" method="post">
+							<tr id="add">
+								<td>
+									<span class="rank">{$info['asortid']}</span>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													<input type="hidden" name="asortid" value="{$info['asortid']}">
+													<input class="xd-input" value="{$info['aname']}" name="aname" >
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<input type="submit" value="修改" style="width:200px;background:write;border:0px;">
+								</td>
+							</tr>
+						</tbody>
+						</form>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>

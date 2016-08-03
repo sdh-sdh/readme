@@ -1,0 +1,292 @@
+<extend name="Index:index"/>
+<!-- 界面css样式 -->
+<block name="css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/info.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/orderDetail.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/Detailsee.css">
+</block>
+
+<block name="indexNavbar"></block>
+
+<!-- 个人信息主体界面 -->
+<block name="main">
+    <div class="info">
+		<!-- 中间区域 -->
+		<div id="body_wrap">
+	    <div id="body" class="fm960">
+			<div class="muorder">
+	    		<div class="mu_wrap">
+			        <h2 class="mu_head">订单详情</h2>
+			        <!-- 订单时间 -->
+			        <div class="mu_d_lines mu_d_mrgin">
+			            <span class="mw">订单编号: {$order.ordernum}</span>
+			            <span class="mw">当前状态: <span class="cancel">交易取消</span></span>
+			        </div>
+			        <!-- 订单进度 -->
+			        <!-- 普通订单进度 -->
+					<div class="md_process mu_d_mrgin">
+					    <div class="md_process_wrap md_process_step1">
+					        <!-- class: step样式不加为全黑，md_process_step1 为第一步，依次类推 -->
+					        <div class="md_process_sd"></div>
+					        <i class="md_process_i md_process_i1">
+					            1
+					            <span class="md_process_tip">提交订单</span>
+					            <span class="md_process_tip_bt">{$order.ordertime|date = "Y-m-d H:i:s",###}</span></i>
+					        <i class="md_process_i md_process_i2">
+					            2
+					            <span class="md_process_tip">买家支付</span>
+					                    </i>
+					        <i class="md_process_i md_process_i3">
+					            3
+					            <span class="md_process_tip">卖家发货</span>
+					                    </i>
+					        <i class="md_process_i md_process_i4">
+					            4
+					            <span class="md_process_tip">确认收货</span>
+					                    </i>
+					        <i class="md_process_i md_process_i5">5<span class="md_process_tip">评价</span></i>
+					    </div>
+					</div>
+			        <!-- 详细信息 start-->
+			        <div class="mu_d_info">
+			        <h5 class="mu_d_info_tit">详细信息</h5>
+			            <dl class="mu_d_infolist">
+			                <dt>收 货 人：</dt>
+			                <dd>{$order.name}</dd>
+			                <dt>收货地址：</dt>
+			                <dd>{$order.sheng} {$order.shi} {$order.xian} {$order.adress}</dd>
+			                <dt>收货邮编：</dt>
+			                <dd>{$order.postcode}</dd>
+			                <dt>联系电话：</dt>
+			                <dd>{$order.phone}</dd>
+			            </dl>
+					</div>
+			        <!-- 详细信息 end-->
+			        <div class="mu_d_orderlist mu_d_mrgin">
+			            <h5 class="mu_d_info_tit">商品清单</h5>
+						<!-- 订单列表 start-->
+			            <!-- order list -->
+						<ul class="mo_orderlist">
+						    <!-- 已发货多个商品 -->
+						    <li class="mo_orderitem">
+						        <ul class="mo_orderitem_thlist clearfix">
+						            <li class="td_goods">商品</li>
+						            <li class="td_price">单价（元）</li>
+						            <li class="td_count">　　</li>
+						            <li class="td_wipay">交易状态</li>
+						            <li class="td_ictrl">店铺优惠</li>
+						            <li class="td_afmak">全场优惠</li>
+						            <li class="td_total">订单额（元）</li>
+						        </ul>
+				        <!-- 商品信息 -->
+				        		<ul class="mo_orderitem_det clearfix">
+						            <li class="td_colrow">
+						                <!-- loop1 -->
+						                <foreach name="order['myattr']" item="goods">
+						                <ul class="td_colrow_wrap clearfix">
+						                    <li class="td_goods">
+						                        <div class="td_wrap txtleft">
+						                            <a href="javascript:;" title="(年末新品）{$goods['goodname']}" target="_blank">
+						                                <img class="mo_orderitem_gdimg" src="__ROOT__{$goods['goodpic']}" width="60" height="60" alt="(年末新品）{$goods['goodname']}" title="(年末新品）{$goods['goodname']}">
+						                            </a>
+						                            <p class="mo_orderitem_h mo_orderitem_gdinfo mb4">
+							                            <a href="javascript:;" title="(年末新品）{$goods['goodname']}" target="_blank">(年末新品）{$goods['goodname']}</a>
+						                            </p>
+						                            <foreach name="goods['attr_v']" item="attr_val">
+						                            <p class="mo_orderitem_d mo_orderitem_gdinfo">{$attr_val}</p>
+						                            </foreach>
+						                        </div>
+						                    </li>
+						                    <li class="td_price">
+						                        <div class="td_wrap">
+						                            <p class="mu_money mu_org_money">¥ {$goods['nowprice']}</p>
+						                            <p class="mu_money">¥ {$goods['price']}</p>
+						                        </div>
+						                    </li>
+			            				</ul>
+			            				</foreach>
+			                            <!-- loop1 end -->
+			        				</li>
+						            <li class="td_wipay mo_orderitem_lfence">
+						                <div class="td_wrap">
+						                    <span class="cancel">交易取消</span>
+						                </div>
+						            </li>
+						            <li class="td_ictrl mo_orderitem_lfence">
+						                <div class="td_wrap">
+						                    <p class="mu_d_discount">未使用店铺优惠券</p>
+						                </div>
+						            </li>
+						            <li class="td_afmak mo_orderitem_lfence">
+						                <div class="td_wrap">
+						                    <p class="mu_d_discount">无优惠</p>
+						                </div>
+						            </li>
+						            <li class="td_total mo_orderitem_lfence">
+						                <div class="td_wrap">
+						                    <span class="mo_orderitem_money_gray mu_money">¥ {$order['orderprice']}.00</span>
+						                </div>
+						            </li>
+			    				</ul>
+			    			</li>
+		                <!-- 商品信息 end -->
+						</ul>
+			            <!-- 订单列表 end-->
+			            <!-- 订单备注 start-->
+			            <dl class="mu_d_infolist">
+			                <dt>买家备注：</dt>
+			                <dd>快递公司 [全国包邮]</dd>
+			            </dl>
+			            <!-- 订单备注 end-->
+					</div>
+
+
+					<div class="mu_browser_content_wrap" data-param="{&quot;scene&quot;:&quot;detail4buyer&quot;, &quot;cmsid&quot;:2984, &quot;ptraceid&quot;:&quot;trade_order_detail4buyer_2ul9yvgkg7wg&quot;}">
+		                <div class="mu_browser">
+		                    <div class="mu_browser_h">
+		                        <h5>
+		                            <a href="javascript:;" class="c mu_last_viewed J_click" trigger="muBrowserSilde_01">最近浏览过的</a>
+		                        </h5>
+		                    </div>
+		                     <!--最近浏览 start-->
+		                	<div id="muBrowserSilde_01" class="muBrowserSilde" data-step="6">
+		                		<div class="mu_browser_h">
+		                            <div class="mu_browser_h_wrap">
+		                                <ul data-type="last_browser" class="mu_browser_curwrap fr ms_tips">
+		                                    <li><!-- <a href="javascript:;" class="ms_item c"></a> --></li>
+		                                    <li><!-- <a href="javascript:;" class="ms_item"></a> --></li>
+		                                </ul>
+		                                <!--最近浏览 end-->
+		                                <!--最近浏览推荐关键字 start-->
+		                                <p data-type="last_browser" class="key_words fr">
+		                                    <a href="javascript:;" target="_blank" title="墨镜">墨镜</a> | <a href="javascript:;" target="_blank" title="手拿包">手拿包</a> | <a href="javascript:;" target="_blank" title="单鞋">单鞋</a> | <a href="javascript:;" target="_blank" title="热裤">热裤</a> | <a href="javascript:;" target="_blank" title="春夏睡衣">春夏睡衣</a> | <a href="javascript:;" target="_blank" title="N字鞋">N字鞋</a>
+		                                </p>
+		                                <!--最近浏览推荐关键字 end-->
+		                            </div>
+		                        </div>
+		                        <div class="mu_browser_list_wrap">
+		                        <!--最近浏览 start-->
+		                			<ul data-type="last_browser" class="mu_browser_list clearfix ms_slider" id="roll" style="left: 0px;">
+		                                <li class="ms_item">
+			        						<a href="javascript:;" class="mu_browser_img_a" target="_blank" title="澳洲Aveeno燕麦护手霜，长效滋养，敏感肌肤也能用哦~">
+			        						  <img src="__PUBLIC__/Home/images/1s0xkb_170x170.jpg" width="134" alt="澳洲Aveeno燕麦护手霜，长效滋养，敏感肌肤也能用哦~" title="澳洲Aveeno燕麦护手霜，长效滋养，敏感肌肤也能用哦~">
+			        						</a>
+			        						<a class="mu_browser_t mu_hoverline singleline" href="javascript:;" title="澳洲Aveeno燕麦护手霜，长效滋养，敏感肌肤也能用哦~" target="_blank">澳洲Aveeno燕麦护手霜...</a>
+			        						<p class="mu_browser_p clearfix">
+			        							<span class="fl mu_red">¥ 88.00</span>
+			        						</p>
+			        						<p class="mu_lightgray mu_browser_x">销量12</p>
+		        						</li>
+		        						<li class="ms_item">
+		        							<a href="javascript:;" class="mu_browser_img_a" target="_blank" title="(年末新品）韩版潮新款时尚跑步运动鞋">
+		        								<img src="__PUBLIC__/Home/images/1ngme2_170x170.jpg" width="134" alt="(年末新品）韩版潮新款时尚跑步运动鞋" title="(年末新品）韩版潮新款时尚跑步运动鞋">
+		        							</a>
+		        							<a class="mu_browser_t mu_hoverline singleline" href="javascript:;" title="(年末新品）韩版潮新款时尚跑步运动鞋" target="_blank">(年末新品）韩版潮新款...</a>
+		        							<p class="mu_browser_p clearfix">
+		        								<span class="fl mu_red">¥ 66.85</span>
+		        								<span class="fl mu_tip_green mt1 ml10">6.5折</span>
+		        							</p>
+		        							<p class="mu_lightgray mu_browser_x">销量139</p>
+		        						</li>
+		        						<li class="ms_item">
+		        							<a href="javascript:;" class="mu_browser_img_a" target="_blank" title="*木子*复古拼接手提单肩斜挎包（送小熊）">
+		        								<img src="__PUBLIC__/Home/images/n3qen_170x170.jpg" width="134" alt="*木子*复古拼接手提单肩斜挎包（送小熊）" title="*木子*复古拼接手提单肩斜挎包（送小熊）">
+		        							</a>
+		        							<a class="mu_browser_t mu_hoverline singleline" href="javascript:;" title="*木子*复古拼接手提单肩斜挎包（送小熊）" target="_blank">*木子*复古拼接手提单...</a>
+		        							<p class="mu_browser_p clearfix">
+		        								<span class="fl mu_red">¥ 68.00</span>
+		        								<span class="fl mu_tip_green mt1 ml10">7折</span>
+		        							</p>
+		        							<p class="mu_lightgray mu_browser_x">销量409</p>
+		        						</li>
+		        						<li class="ms_item">
+		        							<a href="javascript:;" class="mu_browser_img_a" target="_blank" title="爱尚女包 韩国新款百搭蝙蝠单肩包">
+		        								<img src="__PUBLIC__/Home/images/11ovry_170x170.jpg" width="134" alt="爱尚女包 韩国新款百搭蝙蝠单肩包" title="爱尚女包 韩国新款百搭蝙蝠单肩包">
+		        							</a>
+		        							<a class="mu_browser_t mu_hoverline singleline" href="javascript:;" title="爱尚女包 韩国新款百搭蝙蝠单肩包" target="_blank">爱尚女包 韩国新款百搭...</a>
+		        							<p class="mu_browser_p clearfix">
+		        								<span class="fl mu_red">¥ 69.00</span>
+		        								<span class="fl mu_tip_green mt1 ml10">7折</span>
+		        							</p>
+		        							<p class="mu_lightgray mu_browser_x">销量2</p>
+		        						</li>
+		        						<li class="ms_item">
+		        							<a href="javascript:;" class="mu_browser_img_a" target="_blank" title="【乌拉拉】休闲连帽连衣裙">
+		        								<img src="__PUBLIC__/Home/images/i1rap_170x170.jpg" width="134" alt="【乌拉拉】休闲连帽连衣裙" title="【乌拉拉】休闲连帽连衣裙">
+		        							</a>
+		        							<a class="mu_browser_t mu_hoverline singleline" href="javascript:;" title="【乌拉拉】休闲连帽连衣裙" target="_blank">【乌拉拉】休闲连帽连...</a>
+		        							<p class="mu_browser_p clearfix">
+		        								<span class="fl mu_red">¥ 49.30</span>
+		        								<span class="fl mu_tip_green mt1 ml10">5.8折</span>
+		        							</p>
+		        							<p class="mu_lightgray mu_browser_x">销量415</p>
+		        						</li>
+		        						<li class="ms_item">
+		        							<a href="javascript:;" class="mu_browser_img_a" target="_blank" title="【yoka】促销大回馈！亏本甩卖雪地靴">
+		        								<img src="__PUBLIC__/Home/images/1gr24n_170x170.jpg" width="134" alt="【yoka】促销大回馈！亏本甩卖雪地靴" title="【yoka】促销大回馈！亏本甩卖雪地靴">
+		        							</a>
+		        							<a class="mu_browser_t mu_hoverline singleline" href="javascript:;" title="【yoka】促销大回馈！亏本甩卖雪地靴" target="_blank">【yoka】促销大回馈！...</a>
+		        							<p class="mu_browser_p clearfix">
+		        								<span class="fl mu_red">¥ 39.90</span>
+		        								<span class="fl mu_tip_green mt1 ml10">7折</span>
+		        							</p>
+		        							<p class="mu_lightgray mu_browser_x">销量9184</p>
+		        						</li>
+		        						<li class="ms_item">
+		        							<a href="javascript:;" class="mu_browser_img_a" target="_blank" title="【韩味服饰】韩版麂皮绒牛角扣长款拼接羊羔毛棉服外套棉衣">
+		        								<img src="__PUBLIC__/Home/images/11gcf9_170x170.jpg" width="134" alt="【韩味服饰】韩版麂皮绒牛角扣长款拼接羊羔毛棉服外套棉衣" title="【韩味服饰】韩版麂皮绒牛角扣长款拼接羊羔毛棉服外套棉衣">
+		        							</a>
+		        							<a class="mu_browser_t mu_hoverline singleline" href="javascript:;" title="【韩味服饰】韩版麂皮绒牛角扣长款拼接羊羔毛棉服外套棉衣" target="_blank">【韩味服饰】韩版麂皮...</a>
+		        							<p class="mu_browser_p clearfix">
+		        								<span class="fl mu_red">¥ 128.10</span>
+		        								<span class="fl mu_tip_green mt1 ml10">7折</span>
+		        							</p>
+		        							<p class="mu_lightgray mu_browser_x">销量98</p>
+		        						</li>
+		        						<li class="ms_item">
+		        							<a href="javascript:;" class="mu_browser_img_a" target="_blank" title="冬季新品 韩版高腰弹力显瘦小脚牛仔裤">
+		        								<img src="__PUBLIC__/Home/images/126nhf_170x170.jpg" width="134" alt="冬季新品 韩版高腰弹力显瘦小脚牛仔裤" title="冬季新品 韩版高腰弹力显瘦小脚牛仔裤">
+		        							</a>
+		        							<a class="mu_browser_t mu_hoverline singleline" href="javascript:;" title="冬季新品 韩版高腰弹力显瘦小脚牛仔裤" target="_blank">冬季新品 韩版高腰弹力...</a>
+		        							<p class="mu_browser_p clearfix">
+		        								<span class="fl mu_red">¥ 55.00</span>
+		        								<span class="fl mu_tip_green mt1 ml10">7折</span>
+		        							</p>
+		        							<p class="mu_lightgray mu_browser_x">销量25815</p>
+		        						</li>
+		                			</ul>
+		                			<!--最近浏览 end-->
+		                		</div>
+		                	</div>
+		                    <!--最近浏览 end-->
+		                </div>
+		        	</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</block>
+
+<block name="script">
+<script src="__PUBLIC__/Home/js/userOrder.js"></script>
+<script type="text/javascript">
+
+		$(function(){
+			//将下标为零的隐藏,为6的显示
+			function piao(){
+				if($('.mu_browser_list_wrap').find('li').index() == 0){
+					$('.mu_browser_list_wrap').find('li:eq(0)').css('display','none');
+					$('.mu_browser_list_wrap').find('li:eq(6)').css('display','block');
+					var zero = $('.mu_browser_list_wrap').find('li:eq(0)');
+					$('.mu_browser_list_wrap').find('li:eq(7)').after(zero);
+				}
+			}
+			setInterval(function(){
+				piao();
+
+			},1000)
+
+ 		})
+</script>
+</block>

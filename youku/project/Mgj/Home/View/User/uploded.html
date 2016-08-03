@@ -1,0 +1,169 @@
+<extend name="Index:index"/>
+<!-- 界面css样式 -->
+<block name="css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/info.css">
+</block>
+<!-- 个人信息主体界面 -->
+<block name="main">
+    <div class="info">
+        <!-- 主体信息选项部分 -->
+        <div class="info_left">
+            <!-- 头像、等级 -->
+            <div class="left_img">
+                <img src="__ROOT__/{$data[0]['userpic']}" alt="">
+                <p>菜小小荆</p>
+
+                <div class="col-xs-5 8e"></div>
+                <span class="vip_level0"></span>
+            </div>
+            <!-- 详细信息选项 -->
+            <dl class="mu_nav">
+                <dt>我的订单</dt>
+                <dd><a href="">全部订单</a></dd>
+                <dd><a href="">待付款</a></dd>
+                <dd><a href="">待收货</a></dd>
+                <dd><a href="">待评价</a></dd>
+                <dd><a href="">退货退款</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的钱包</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的理财</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>优惠特权</dt>
+                <dd><a href="">钻石会员</a></dd>
+                <dd><a href="">我的蘑豆</a></dd>
+                <dd><a href="">现金卷</a></dd>
+                <dd><a href="">店铺优惠劵</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">地址管理</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">安全设置</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>维权管理</dt>
+                <dd><a href="">投诉管理</a></dd>
+                <dd><a href="">举报管理</a></dd>
+                <dd><a href="">被盗举证</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt>账号设置</dt>
+                <dd><a href="{:U('userinfo')}">基本信息</a></dd>
+                <dd><a href="{:U('uploded')}">修改头像</a></dd>
+            </dl>
+        </div>
+        <!-- 主体信息修改信息页面 -->
+        <div class="info_right">
+            <div class="right_main">
+                <!-- 个人基本资料 -->
+                <div class="right_title">
+                    <span>基本资料</span>
+                </div>
+                <form action="__APP__/Home/User/uplodededit" method="post" enctype="multipart/form-data">
+                <div id="setting_form" class="right_basic">
+                <dl>
+                    <dd>当前头像：</dd>
+                        <dt class="">
+                            <img src="__ROOT__/{$data[0]['userpic']}" alt="" width="150">
+                        </dt>
+                        <dd><p style="margin-right:10px;">上传新头像:</p></dd>
+                        <dt style="position:relative;">
+
+                            <div id="up" style="line-height:35px;">
+                                <div id="filelist"></div>
+                                <!-- <a id="pickfiles" href="javascript:;">浏览图片</a>  -->
+                                <button id="bc" class="btn btn-info btn-sm">浏览图片</button>
+                                <a id="uploadfiles" href="javascript:;">点击上传大图</a>
+                                <div id="imgs"></div>
+                                <!-- <div id="console"></div> -->
+                            </div>
+                            <script type="text/javascript" src="__PUBLIC__/Home/plupload/js/plupload.full.min.js"></script>
+
+                            <script type="text/javascript" src="__PUBLIC__/Home/plupload/js/jquery-1.8.3.min.js"></script>
+
+                            <script type="text/javascript">
+                                //创建上传对象
+                                var uploader = new plupload.Uploader({
+                                    runtimes : 'html5,flash,silverlight,html4',//默认
+                                    browse_button : 'bc', // 设置浏览文件的框体
+                                    url : "{:U('Home/User/uploadImg')}",//设置上传的脚本路径
+                                    //初始化
+                                    init: {
+                                        PostInit: function() {
+                                            //清空列表
+                                            document.getElementById('filelist').innerHTML = '';
+                                            //绑定单击事件开始上传
+                                            document.getElementById('uploadfiles').onclick = function() {
+                                                uploader.start();
+                                                return false;
+                                            };
+                                        },
+                                        //添加元素之后的代码执行   创建显示的文件列表
+                                        FilesAdded: function(up, files) {
+                                            plupload.each(files, function(file) {
+                                                document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+                                            });
+                                        },
+                                        //添加上传过程中的代码执行  显示文件上传的百分比
+                                        UploadProgress: function(up, file) {
+                                            document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+                                        },
+                                        //错误执行程序  在console.log位置显示错误信息和代号
+                                        Error: function(up, err) {
+                                            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+                                        },
+                                        //文件上传成功之后的代码执行  res接收服务器返回的数据
+                                        FileUploaded : function(up, file, res){
+                                            //获取服务器返回的数据
+                                            var result = res.response;
+                                            //创建数据
+                                            var res = $.parseJSON(res.response);
+                                            //创建图片
+                                            //隐藏域传原图地址
+                                            var input = $('<input type="hidden" name="userpic" value="'+res.datas+'" readonly="readonly" style="line-height:20px;border:1px solid #ddd" />');
+
+                                            //隐藏域传缩略图地址
+                                            // var thumb_path = $('<input type="hidden" name="smallpic[]" value="'+res.thumb_data+'" />');
+                                            //
+                                            var img = $('<img id="pic" src="/project'+res.datas+'" alt="" / width="150" style="margin:10px 10px;" />');
+                                            var img1 = $('<img id="pic" src="/project'+res.datas+'" alt=""  width="120" style="margin:10px 10px;" />');
+                                            var img2 = $('<img id="pic" src="/project'+res.datas+'" alt=""  width="90" style="margin:10px 10px;" />');
+                                            var img3 = $('<img id="pic" src="/project'+res.datas+'" alt=""  width="50" style="margin:10px 10px;"/>');
+                                            $('#up').append(input);
+                                            //缩略图追加
+                                            // $('#up').append(thumb_path);
+                                            $('#up').append(img);
+                                            $('#up').append(img1);
+                                            $('#up').append(img2);
+                                            $('#up').append(img3);
+
+
+                                        }
+                                    }
+                                });
+                                uploader.init();
+
+                            </script>
+
+                        </dt>
+
+                        <dd class="avartar_confirm">&nbsp;</dd>
+                        <dt class="avartar_confirm">
+                        <input type="submit" value="确定" class="green_button">
+                        </dt>
+                </dl>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+<script src="__PUBLIC__/Home/js/userinfo.js"></script>
+<!-- <script src=""></script> -->
+</block>

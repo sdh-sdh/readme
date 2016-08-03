@@ -1,0 +1,30 @@
+[ 2015-12-30T19:19:28+08:00 ] 127.0.0.1 /Home/Order/index?test=test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and password='' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `id` FROM `bank_user` WHERE ( phone= and password='' ) LIMIT 1  
+
+[ 2015-12-30T19:19:37+08:00 ] 127.0.0.1 /index.php/Home/Order/PCode.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000660s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001077s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 ) LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2015-12-30T19:19:38+08:00 ] 127.0.0.1 /index.php/Home/Order/check.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001468s ]
+SQL: SHOW COLUMNS FROM `bank_user` [ RunTime:0.0032s ]
+SQL: SELECT * FROM `bank_user` WHERE ( phone=12312312312 and password='202cb962ac59075b964b07152d234b70' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `bank_user_details` [ RunTime:0.0344s ]
+SQL: SHOW COLUMNS FROM `bank_order` [ RunTime:0.0028s ]
+SQL: UPDATE `bank_user_details` SET `account`=account-154 WHERE ( uid=13 ) [ RunTime:0.0364s ]
+SQL: UPDATE `bank_user_details` SET `account`=account+154 WHERE ( uid=14 ) [ RunTime:0.0303s ]
+NOTIC: [8] Undefined index: validate D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto D:\wamp\www\thinkphp\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+SQL: INSERT INTO `bank_order` (`source`,`gather`,`time`,`money`,`ordernum`) VALUES ('13','14','1451474378','154','14514743634597') [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `bank_company` [ RunTime:0.0089s ]
+SQL: SELECT `resulturl` FROM `bank_company` WHERE ( uid=14 ) LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002570s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002883s ]
+

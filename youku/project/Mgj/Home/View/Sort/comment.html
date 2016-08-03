@@ -1,0 +1,130 @@
+<extend name="Sort:control" />
+<block name="asort">
+<div class="xd-page" data-reactid=".2">
+		<div class="xd-header" data-reactid=".2.0">
+			<h2 class="xd-title" data-reactid=".2.0.0">商品评论列表</h2>
+			<div class="xd-section">
+				<div class="xd-section-body">
+					<table class="xd-table">
+						<thead>
+							<tr>
+								<th>评论ID</th>
+								<th class="name">商品名</th>
+								<th class="name">用户ID</th>
+								<th class="name">评论IP</th>
+								<th class="name">评论时间</th>
+								<th class="name">评论内容</th>
+								<th class="name">评分</th>
+								<th class="name">操作</th>
+							</tr>
+						</thead>
+						<tbody class="ass">
+						<foreach name="com" item="vo" >
+							<tr id="add">
+								<td>
+									<span class="rank">{$vo['id']}</span>
+								</td>
+								<td style="width:150px">
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['goodname']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['userid']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name" style="width:60px;">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['cip']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{:date('Y-m-d H:i:s',$vo['ctime'])}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name" style="width:150px;">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['content']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['score']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<a href="{:U('Home/Sort/comdel',array('id'=>$vo[id]))}" class="btn btn-xs btn-danger" onclick="if(!confirm('确定要删除吗，你确认要删除吗？')){return false;}">
+										<i class="icon-trash bigger-120"></i>
+									</a>
+								</td>
+							</tr>
+							</foreach>
+							<tr>
+								<td colspan="9"><div class="row"><div class="col-md-5"></div><div id="pages">{$pages}</div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<style type="text/css">
+				     #pages a, #pages span{
+				        background-color: #fff;
+				        border: 1px solid #ddd;
+				        color: #337ab7;
+				        float: left;
+				        line-height: 1.42857;
+				        margin-left: -1px;
+				        padding: 6px 12px;
+				        position: relative;
+				        text-decoration: none;
+				     }  
+				     #pages span{
+				        background-color: #337ab7;
+				        border-color: #337ab7;
+				        color: #fff;
+				        cursor:pointer;
+				        z-index: 2;
+				     }
+				</style>
+			</div>
+		</div>
+	</div>
+</block>

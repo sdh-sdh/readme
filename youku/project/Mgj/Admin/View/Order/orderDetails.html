@@ -1,0 +1,103 @@
+<extend name="Common:index" />
+<block name="main">
+	<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+
+							<li>
+								<a href="#">订单管理</a>
+							</li>
+							<li class="active">订单修改</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." name="goodsname" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<input type="submit" class="btn btn-primary btn-xs" value="搜索" style="border-radius:3px; height:28px; margin-top:-4px; padding-right:24px;">
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								订单管理
+								<small>
+									<i class="icon-double-angle-right"></i>
+									订单修改
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="table-responsive">
+											<form id="stateForm">
+											<input type="hidden" name="orderid" value="{$Think.get.id}">
+												<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+													<tbody>
+														<tr>
+															<td style="text-align:right;">商品状态：</td>
+															<td>
+																<select name="stat">
+																	<option value="0" {$state == 0 ? selected : ""}>未支付</option>
+																	<option value="1" {$state == 1 ? selected : ""}>已支付</option>
+																	<option value="2" {$state == 2 ? selected : ""}>已发货</option>
+																	<option value="3" {$state == 3 ? selected : ""}>待评价</option>
+																	<option value="4" {$state == 4 ? selected : ""}>完成</option>
+																</select>
+															</td>
+														</tr>
+														<tr>
+                                                            <td></td>
+															<td>
+																<input id="modifyState" class="btn no-border" type="button" name="sub" value="修改订单">
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</form>
+										</div><!-- /.table-responsive -->
+									</div><!-- /span -->
+								</div><!-- /row -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+</block>
+
+<block name="script">
+	<script>
+		$(function(){
+			$('#modifyState').click(function() {
+				
+				var data = $('#stateForm').serialize();
+				$.post("{:U('Admin/Order/modifyState')}", data, function(msg){
+					if (msg == 1) {
+						alert('修改成功');
+					}else if (msg == 2) {
+						alert('修改失败');
+					}else{
+						alert('未做修改');
+					}
+				}, 'json');
+
+			});
+		});
+	</script>
+</block>

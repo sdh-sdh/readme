@@ -1,0 +1,122 @@
+<extend name="Index:index"/>
+
+<block name="css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/css1.css">
+</block>
+
+<block name="main">
+    <div class="container creat-margin-2">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="item-pic-origin" style="max-height:550px;">
+                        <img id="dtp" class="j-big-pic twitter_pic" src="{$ginfo.goodpic}">
+                    </div>
+                    <div id="fdj" class="fdj">
+                        <img src="{$ginfo.goodpic}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="js-pic-thumb" class="item-pic-thumb">
+                        <foreach name="gpic" item="vo" >
+                            <span class="active"><img width="68" src="{$vo}"></span>
+                        </foreach>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7 col-xs-offset-1">
+                <div class="item-sale">
+                    <h3 class="item-title"><a href="" class="label-show">[晒单]</a>{$ginfo.goodname}</h3>
+                    <h4 class="item-sub-title">秋装新款中长款镂空套头蝙蝠针织衫</h4>
+                    <div class="item-price-info">
+                        <span class="price-now">￥<i id="price-now" class="num">{$ginfo.nowprice}</i></span>
+                        <span class="price-original">￥<i id="price-original" class="num">359.00</i></span>
+                        <span class="label-text js-label" style="background-color:#ff9933" data-text="免运费">免运费</span>
+                    </div>
+                    <ul class="item-promote-infos js-shop-promote">
+                        <li class="js-promote-item">
+                            <i class="label-mark-limit">限</i>距离恢复原价仅剩<span class="countdown"><i class="day countdown-time">33</i>天<i class="hour countdown-time">14</i>小时<i class="minute countdown-time">33</i>分<i class="second countdown-time">22</i>秒</span>
+                        </li>
+                        <li>
+                            <i class="label-mark-coupon">劵</i>
+                            <ol class="item-promotion">
+                                <li class="item-promotion-single">满64减5元优惠券可领取
+                                    <div class="dropdown-wrap js-coupon-wrap">
+                                        <a href="" class="red_f dropdown-wrap-btn js-coupon-btn">立即领取&nbsp;</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                    <div class="item-freight">
+                        <label>运费</label>福建厦门<span class="gray_f pl6_f">至</span><a class="pl6_f city-name" href="#"><span class="js-city-name">北京&nbsp;&nbsp;</span></a><span>&nbsp;免运费</span>
+                    </div>
+                    <ul class="item-data">
+                        <li>销售<span class="item-data-wrap">1247件</span></li>
+                        <li class="item-data-middle">好评论<span class="item-data-wrap"><a href="">93.75%</a>(20人)</span></li>
+                        <li>喜欢<span class="item-data-wrap">158人</span></li>
+                    </ul>
+                    <ul class="sku_meta"></ul>
+                    <div class="sku_info">
+                        <div class="skin">
+                            <foreach name="attr" item="vo">
+                                <dl data="{$key}">
+                                    <dt>{$vo.attrname}</dt>
+                                    <dd>
+                                        <ul class="item-size-types">
+                                            <foreach name="vo.value" item="v">
+                                                <li>
+                                                    <button type="button" attr-n="{$vo.id}" attr-v="{$v.id}" class="btn btn-default">{$v.value}</button>
+                                                </li>
+                                            </foreach>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </foreach>
+                        </div>
+                            <div>
+                                <dl class="amout">
+                                    <dt>数 量</dt>
+                                    <dd>
+                                        <div class="item-stock js-stock">
+                                            <div id="item-stock-num">1</div>
+                                        <span class="item-stock-btns">
+                                            <span id="numUp" class="item-stock-plus js-stock-plus"><i class="icon-up"></i></span>
+                                            <span id="numDown" class="item-stock-minus js-stock-minus"><i class="icon-down"></i></span>
+                                        </span>
+                                            <span id="item-stock-reserve" class="item-stock-reserve js-stock-reserve">(库存&nbsp;<span>5</span>&nbsp;件)</span>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="mt10_f">
+                                    <dt>客服</dt>
+                                    <dd><a class="goqq knilmi" href=""><em class="qqico">&nbsp;</em>联系客服</a></dd>
+                                </dl>
+                            </div>
+
+
+                            <div class="row text-center creat-margin-2">
+                                <div class="col-xs-3 col-xs-offset-1">
+                                    <button type="button" gid="{$Think.get.id}" data="{:U('Home/Cart/addCart')}" disabled id="buy-btn" data-loading-text="已加入购物车" class="btn btn-danger">
+                                        加入购物车
+                                    </button>
+                                </div>
+                                <div class="col-xs-2">
+                                    <button type="button" class="btn btn-danger">
+                                        立即购买
+                                    </button>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script>
+        var url = '{:U("Home/Detail/ajaxStock", array("id"=>I("get.id")))}';
+    </script>
+    <script src="__PUBLIC__/Home/js/details.js"></script>
+</block>

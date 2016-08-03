@@ -1,0 +1,46 @@
+[ 2016-07-07T20:18:44+08:00 ] ::1 /zhangdi/youku/project/index.php/Home/User/aLogin.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of Home\Controller\UserController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') C:\xampp\htdocs\zhangdi\youku\project\Mgj\Home\Controller\UserController.class.php 第 5 行.
+SQL: SHOW COLUMNS FROM `feiyue_configure` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `feiyue_configure` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `feiyue_friendlink` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `feiyue_friendlink`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `feiyue_user` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `feiyue_user` WHERE `username` = 'admin' AND `password` = 'e10adc3949ba59abbe56e057f20f883e' LIMIT 1   [ RunTime:0.0860s ]
+SQL: SELECT * FROM `feiyue_user` WHERE `username` = 'admin' AND `password` = 'e10adc3949ba59abbe56e057f20f883e'  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: cart C:\xampp\htdocs\zhangdi\youku\project\Mgj\Home\Controller\UserController.class.php 第 203 行.
+NOTIC: [8] Undefined index: backUrl C:\xampp\htdocs\zhangdi\youku\project\Mgj\Home\Controller\UserController.class.php 第 103 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-07-07T20:21:35+08:00 ] ::1 /zhangdi/youku/project/index.php/Home/Detail/ajaxStock/id/68.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `feiyue_goods_sku` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `feiyue_goods_sku` WHERE ( gid=68 and attr='{"5":"175","6":"179"}' ) LIMIT 1   [ RunTime:0.0060s ]
+
+[ 2016-07-07T20:21:36+08:00 ] ::1 /zhangdi/youku/project/index.php/Home/Detail/ajaxStock/id/68.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `feiyue_goods_sku` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `feiyue_goods_sku` WHERE ( gid=68 and attr='{"5":"173","6":"179"}' ) LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-07-07T20:21:37+08:00 ] ::1 /zhangdi/youku/project/index.php/Home/Detail/ajaxStock/id/68.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `feiyue_goods_sku` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `feiyue_goods_sku` WHERE ( gid=68 and attr='{"5":"173","6":"174"}' ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-07-07T20:21:38+08:00 ] ::1 /zhangdi/youku/project/index.php/Home/Detail/ajaxStock/id/68.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `feiyue_goods_sku` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `feiyue_goods_sku` WHERE ( gid=68 and attr='{"5":"173","6":"174"}' ) LIMIT 1   [ RunTime:0.0010s ]
+

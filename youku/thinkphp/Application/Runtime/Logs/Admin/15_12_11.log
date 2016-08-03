@@ -1,0 +1,7 @@
+[ 2015-12-11T11:05:35+08:00 ] 127.0.0.1 /index.php/Admin/Manager/ajaxCheckName
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001219s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001861s ]
+SQL: SHOW COLUMNS FROM `lamp_user` [ RunTime:0.0037s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lamp_user` WHERE `username` = 'xiaowang' LIMIT 1   [ RunTime:0.0005s ]
+

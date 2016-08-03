@@ -1,0 +1,129 @@
+<extend name="control" />
+<!-- 页面css样式 -->
+<block name="css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/sortreg.css">
+	<script src="__PUBLIC__/Home/js/jquery-1.11.3.min.js"></script>
+
+</block>
+<!-- 页面头部 -->
+<block name="ass">
+</block>
+<!-- 页面主体 -->
+<block name="asort">
+	<!-- 主体内容 -->
+	<div class="zc_main">
+		<!-- 大图片logo -->
+		<div class="zc_img">
+			<img src="__PUBLIC__/Home/image/xiaodian.png" alt="">
+		</div>
+		<!-- 用户注册填写 -->
+		<div class="zc_fk">
+			<!-- 表单题目 -->
+			<div class="zc_fk_lab">
+				<h3>新用户注册</h3>
+			</div>
+			<div class="clear"></div>
+			<!-- 表单提交 -->
+			<div class="zc_form">
+				<form action="{:U('Home/Sorts/checkRegistr')}" method="post">
+					<div class="zc_form_inp">
+						<p>
+							<select name="" class="zc_form_sel">
+								<option>中国</option>
+								<option>美国</option>
+								<option>英国</option>
+								<option>意大利</option>
+							</select>
+							<input type="text" style="width:164px;" placeholder="手机号码" name="tel" maxlength="32"><span></span>
+						</p>
+						<p>
+							<input id="code" type="text" style="width:164px; float:left;" placeholder="验证码" name="code">
+							<img id="imgid" src="__PUBLIC__/Home/images/zc_yzm.jpg">
+						</p>
+						<p>
+							<input type="password" placeholder="请设置密码(6-20位)" name="password">
+						</p>
+					</div>
+					<div class="zc_form_sub">
+						<input type="submit" value="立即注册" name="sub">
+					</div>
+					<div class="zc_ty">
+						<input id="d_regs" type="checkbox" checked name="store" value="1">
+						<label for="zc_regs">
+							我已阅读并且同意
+							<a target="_blank" href="#">《小店入驻协议》</a>
+						</label>
+					</div>
+				</form>
+				<div class="zc_zh">
+				<!-- 链接登陆页面 -->
+					<a href="{:U('Home/Sorts/login')}">已有账号</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		//点击获取验证码
+		$("#imgid").click(function(){
+			var s = 'code?rand=' + Math.random();
+			$(this).attr('src', s);
+
+		})
+
+		//验证电话号码是否正确
+		$("input:first").blur(function(){
+				var that = $(this);
+				if(!$(this).val().match(/^\d{11}$/)){
+					alert("电话号码不正确，请重新输入！");
+					that.val('');
+				}
+				//验证新用户注册的手机号是否已被注册
+				var uname = $("input:first").val();
+
+				$.ajax({
+						"type" : "post",
+						"data" : {"tel":uname},
+						"url" : "__APP__/Home/Sorts/getTel",
+						"success" : function(d){
+							if(d == '1'){
+								alert("该手机号已存在，请重新输入！");
+								that.val('');
+							}
+						},
+						"dataType" : "json"
+				});
+		})
+
+
+		//验证密码
+		$("input:password").blur(function(){
+			if($(this).val().length < 6 || $(this).val().length >20){
+				alert("请输入6-20位的密码");
+			}
+		})
+
+		//验证复选框(是否同意协议)
+		$("input:checkbox").change(function(){
+			if(!($(this).attr("checked") == "checked")){
+				$("input:submit").attr("disabled",true);
+			}
+		})
+
+		//验证点击提交后的信息
+		$("input:submit").click(function(){
+			if($("input:first").val() == ""){
+				alert("电话号码不能为空！");
+				return false;
+			}
+			if($("#code").val() == ""){
+				return false;
+			}
+			if($("input:password").val() == ""){
+				return false;
+			}
+		})
+	</script>
+</block>
+<!-- 左侧下拉框 -->
+<block name="arr">
+</block>

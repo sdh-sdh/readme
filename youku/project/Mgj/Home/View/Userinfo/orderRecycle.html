@@ -1,0 +1,196 @@
+<extend name="Index:index"/>
+<!-- 界面css样式 -->
+<block name="css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/info.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/orderUser.css">
+</block>
+
+<block name="indexNavbar"></block>
+
+<!-- 个人信息主体界面 -->
+<block name="main">
+    <div class="info">
+        <!-- 主体信息左选项部分 -->
+        <!-- 左侧内容开始 -->
+        <div class="info_left">
+            <!-- 头像、等级 -->
+            <div class="left_img">
+                <img src="__ROOT__/{$u['userpic']}" alt="">
+                <p>{$u['nickname']}</p>
+
+                <div class="col-xs-5 8e"></div>
+                <span class="vip_level0"></span>
+            </div>
+            <!-- 详细信息选项 -->
+            <dl class="mu_nav">
+                <dt>我的订单</dt>
+                <dd><a href="{:U('Home/Userinfo/order')}">全部订单</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>1))}">待付款</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>2))}">待收货</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>3))}">待评价</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>4))}">退货退款</a></dd>
+                <dd><a href="{:U('Home/Userinfo/orderRecycle')}">订单回收站</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的钱包</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的理财</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>优惠特权</dt>
+                <dd><a href="">钻石会员</a></dd>
+                <dd><a href="">我的蘑豆</a></dd>
+                <dd><a href="">现金卷</a></dd>
+                <dd><a href="">店铺优惠劵</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="{:U('Home/Userinfo/address')}">地址管理</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">安全设置</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>维权管理</dt>
+                <dd><a href="">投诉管理</a></dd>
+                <dd><a href="">举报管理</a></dd>
+                <dd><a href="">被盗举证</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt>账号设置</dt>
+                <dd><a href="{:U('Home/Userinfo/userinfo')}">基本信息</a></dd>
+                <dd><a href="{:U('Home/Userinfo/uploded')}">修改头像</a></dd>
+            </dl>
+        </div>
+
+        <!--我的订单内容左边结束-->
+        <!--右侧内容开始-->
+        <div class="info_right">
+            <!-- 订单支付的标题 -->
+            <div>
+            <h2>订单回收站</h2>
+            </div>
+            <!-- 判断是否存在订单 -->
+            <?php if(empty($order)){ ?>
+                <div class="d_order_list_empty">
+                    <div class="d_order_empty_icon d_fl"></div>
+                    <div class="d_order_empty_content d_fl">
+                        <h5>你还没有购买过商品，赶紧去挑选商品～</h5>
+                        <ul class="d_order_empty_list">
+                            <li>去 <a href="{:U("Index/index")}" target="_balnk">服饰</a> 看看大家都喜欢的商品</li>
+                            <li>去 <a href="{:U("Index/index")}" target="_balnk">团购</a> 看看折扣中的商品</li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <div class="d_order_pagination"></div>
+            <?php }else{ ?>
+                <!--订单列表开始-->
+                <div class="d_order_list">
+                    <div class="d_order_section">
+                        <foreach name="order" item="orders">
+
+                        <table class="d_order_table" style="background:#ddd;">
+                            <tbody>
+                                <!--订单列表头部开始-->
+                                <tr class="d_order_table_header" style="background:#ddd;">
+                                    <td colspan="7" style="padding-top:5px;">
+                                        <div class="d_table_info">
+                                            <span class="d_info_no">订单编号：
+                                                <span class="d_order_num"><del>{$orders.ordernum}</del></span>
+                                            </span>
+                                            <span class="d_info_deal_time">退订时间：<del>{$orders.ordertime|date = "Y-m-d H:i:s",###}</del></span>
+                                            <foreach name="orders['mygoods']" item="stor">
+                                            <a href="javascript:;" class="d_shop_name">店铺：<span>{$stor['shopname']}</span></a>
+                                            </foreach>
+                                        </div>
+                                        <a href="javascript:;" class="d_order_connect_btn">联系商家</a>
+                                    </td>
+                                </tr>
+                                <!--订单列表头部结束-->
+                                <!--订单列表中部开始-->
+                                <tr class="d_order_table_item">
+                                    <td class="d_goods">
+                                        <foreach name="orders['mygoods']" item="stor">
+                                        <foreach name="stor['myattr']" item="godatr">
+                                        <a href="" class="d_pic" hidefocus="true" title="" target="_blank"><img src="__ROOT__{$stor['goodpic']}" alt="" width="70"></a>
+                                        <div class="d_order_desc">
+                                            <div class="goods" style="margin-bottom:40px;">
+                                            <p>
+                                                <a href="__APP__/Detail/particulars/goodsid/{$stor.goodsid}" target="_blank">{$stor['goodname']}</a>
+                                                <a href="javascript:;" target="_blank" class="d_order_snapshot">[交易快照]</a>
+                                            </p>
+
+                                            <p>{$godatr[0]}<span style="margin-left:170px;"><del>{$stor['price']}.00</del></span>
+                                            </p>
+                                            <p>{$godatr[1]}</p>
+                                            <p>{$godatr[2]}</p>
+                                            </div>
+
+                                        </div>
+                                        </foreach>
+                                        </foreach>
+                                    </td>
+                                    <td class="d_total" rowspan="1">
+                                        <ul>
+                                            <li>
+                                                <p class="d_total_price"><del>￥{$stor['price']}.00</del></p>
+                                                <p>(包邮)</p>
+                                                <p></p>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td class="d_status" rowspan="1">
+                                        <if condition="$orders.isdelete eq 1">
+                                        <p class="d_order_p">交易关闭</p>
+                                        </if>
+                                    </td>
+                                    <td class="d_other" rowspan="1">
+                                        <a class="d_order_link">订单已删除</a>
+                                    </td>
+                                </tr>
+                                <!--订单列表中部结束-->
+                            </tbody>
+                        </table>
+                        </foreach>
+                    </div></div>
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div id="pages">{$page}</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!--订单列表结束-->
+                <style type="text/css">
+                     #pages a, #pages span{
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        color: #337ab7;
+                        float: left;
+                        line-height: 1.42857;
+                        margin-left: -1px;
+                        padding: 6px 12px;
+                        position: relative;
+                        text-decoration: none;
+                     }
+                     #pages span{
+                        background-color: #337ab7;
+                        border-color: #337ab7;
+                        color: #fff;
+                        cursor:pointer;
+                        z-index: 2;
+                     }
+                </style>
+                <?php } ?>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+<script src="__PUBLIC__/Home/js/userOrder.js"></script>
+<script>
+    //最近浏览轮播
+
+</script>
+</block>

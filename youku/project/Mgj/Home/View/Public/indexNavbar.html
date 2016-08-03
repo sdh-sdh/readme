@@ -1,0 +1,18 @@
+<div id="navber" style="position: relative; top: 0; height: auto;">
+    <div class="wheader">
+        <div class="header_b">
+            <ul class="nav_new">
+                <block name="shouye">
+                    <li class="home"><a class="r_d" href="{:U('Home/Index/index')}">首页</a></li>
+                </block>
+                <foreach name="sort" item="vo">
+                    <if condition="$Think.get.id eq $vo['asortid']">
+                        <li><a class="r_d" href="{$vo.url}">{$vo.aname}</a></li>
+                        <else/>
+                        <li><a href="{$vo.url}">{$vo.aname}</a></li>
+                    </if>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+</div>

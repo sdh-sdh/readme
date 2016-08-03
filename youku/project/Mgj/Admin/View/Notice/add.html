@@ -1,0 +1,90 @@
+<extend name="Common:index"/>
+<block name="main">
+	<div class="main-content">
+		<div class="breadcrumbs" id="breadcrumbs">
+			<script type="text/javascript">
+				try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+			</script>
+
+			<ul class="breadcrumb">
+				<li>
+					<i class="icon-home home-icon"></i>
+					<a href="#">主页</a>
+				</li>
+
+				<li>
+					<a href="#">商铺公告管理</a>
+				</li>
+				<li class="active">商铺公告添加</li>
+			</ul><!-- .breadcrumb -->
+
+			<div class="nav-search" id="nav-search">
+				<form class="form-search">
+					<span class="input-icon">
+						<input type="text" placeholder="Search ..." name="username" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+						<input type="submit" class="btn btn-primary btn-xs" value="搜索" style="border-radius:3px; height:28px; margin-top:-4px; padding-right:24px;">
+						<i class="icon-search nav-search-icon"></i>
+					</span>
+				</form>
+			</div><!-- #nav-search -->
+		</div>
+
+		<div class="page-content">
+			<div class="page-header">
+				<h1>
+					商铺公告管理
+					<small>
+						<i class="icon-double-angle-right"></i>
+						商铺公告添加
+					</small>
+				</h1>
+			</div><!-- /.page-header -->
+
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- PAGE CONTENT BEGINS -->
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="table-responsive">
+								<form action="{:U('Admin/Notice/insert')}" method="post" enctype="multipart/form-data">
+								<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+									<tbody>
+										<tr>
+											<td style="text-align:right;">商铺公告标题：</td>
+											<td><input type="text" name="storetitle" id="form-field-1" placeholder="storetitle" class="col-xs-10 col-sm-5" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">商铺公告摘要：</td>
+											<td><input type="text" name="storedigest" id="form-field-1" placeholder="storedigest" class="col-xs-10 col-sm-5" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">商铺公告内容：</td>
+											<td>
+											<textarea class="col-xs-10 col-sm-5" rows="5" name="storecontent" id="form-field-1" placeholder="storecontent" class="col-xs-10 col-sm-5" /></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">商铺公告对象：</td>
+											<td><input type="text" name="storename" id="form-field-1" placeholder="storename" class="col-xs-10 col-sm-5" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;">商铺公告发布者：</td>
+											<td><input type="text" name="storeauthor" id="form-field-1" placeholder="storeauthor" class="col-xs-10 col-sm-5" /></td>
+										</tr>
+										<tr>
+											<td style="text-align:right;"><input type="submit" class="btn no-border" value="提交" style=""></td>
+											<td>
+												<input class="btn no-border" type="reset" value="重置">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								</form>
+							</div><!-- /.table-responsive -->
+						</div><!-- /span -->
+					</div><!-- /row -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div><!-- /.main-content -->
+</block>

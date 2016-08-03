@@ -1,0 +1,49 @@
+<extend name="Sort:control" />
+<block name="asort">
+	<div class="xd-page" data-reactid=".2">
+		<div class="xd-header" data-reactid=".2.0">
+			<h2 class="xd-title" data-reactid=".2.0.0">商品分类设置</h2>
+			<a class="xd-btn primary" href="{:U('Home/Sort/asort')}">+新增分类</a>
+			<div class="xd-section">
+				<div class="xd-section-body">
+					<table class="xd-table">
+						<thead>
+							<tr>
+								<th>分类ID</th>
+								<th class="name">分类名</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+
+						<tbody class="ass">
+						<foreach name="sort" item="vo" >
+							<tr id="add">
+								<td>
+									<span class="rank">{$vo['asortid']}</span>
+								</td>
+								<td>
+									<div class="cat-name">
+										<div class="cat-edit">
+											<div class="xd-form-group " >
+												<div class="xd-field">
+													{$vo['aname']}
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td>
+									<a class="btn-opera" href="{:U('Home/Sort/goods',array('asortid'=>$vo['asortid']))}">加入商品</a>
+									<a class="btn-opera" href="{:U('Home/Sort/edit',array('asortid'=>$vo['asortid']))}">修改</a>
+									
+									<a class="btn-opera" href="{:U('Home/Sort/delete',array('asortid'=>$vo['asortid']))}" onclick="if(!confirm('确定要删除吗，你确认要删除吗？')){return false;}">删除</a>
+								</td>
+							</tr>
+							</foreach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>

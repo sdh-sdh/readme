@@ -1,0 +1,39 @@
+<extend name="Sort:control" />
+<block name="asort">
+<div class="col-xs-5" style="float:right;margin:50px 350px;">
+	<h2>添加商品</h2>
+	<form action="{:U('Home/Sort/insert')}" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="storeid" value="{$Think.session.home.id}">
+		<div class="form-group has-error">
+			<label class="control-label" for="inputSuccess">商品分类名</label>
+			<select class="form-control" name="asortid">
+			<foreach name="asorts" item="vo">
+				<option value="{$vo['asortid']}" <if condition="$id eq $vo['asortid']">selected</if>>{$vo['aname']}</option>
+			</foreach>
+			</select>
+		</div>
+		<div class="form-group has-error">
+			<label class="control-label" for="inputSuccess">分类说明</label>
+			<select class="form-control" name="state">
+				<option value="0">----------请----------选----------择----------</option>
+				<option value="1">新款</option>
+				<option value="2">冬装新品</option>
+				<option value="3">韩版时尚</option>
+				<option value="4">冬装火爆</option>
+			</select>
+		</div>
+	   <div class="form-group has-error">
+		  	<label class="control-label" for="inputError">商品名</label>
+		  	<input type="text" class="form-control" id="inputError" name="goodname">
+		</div>
+		<div class="form-group has-error">
+			<a href="javascript:;" class="file">选择商品图片
+    			<input type="file" name="goodpic">
+			</a>
+		</div>
+		<div class="form-group has-error">
+			<button type="submit" class="btn btn-primary btn-lg btn-block">确认提交</button>
+		</div>
+	</form>
+</div>
+</block>

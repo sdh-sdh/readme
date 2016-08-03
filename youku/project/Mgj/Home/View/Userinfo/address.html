@@ -1,0 +1,280 @@
+<extend name="Index:index"/>
+<!-- 界面css样式 -->
+<block name="css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/info.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/address.css">
+</block>
+<block name="indexNavbar"></block>
+<!-- 个人信息主体界面 -->
+<block name="main">
+    <div class="info">
+        <!-- 主体信息选项部分 -->
+        <div class="info_left">
+            <!-- 头像、等级 -->
+            <div class="left_img">
+                <img src="__ROOT__/{$detail['userpic']}" alt="">
+                <p>{$detail['nickname']}</p>
+
+                <div class="col-xs-5 8e"></div>
+                <span class="vip_level0"></span>
+            </div>
+            <!-- 详细信息选项 -->
+            <dl class="mu_nav">
+                <dt>我的订单</dt>
+                <dd><a href="{:U('Home/Userinfo/order')}">全部订单</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>1))}">待付款</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>2))}">待收货</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>3))}">待评价</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>4))}">退货退款</a></dd>
+                <dd><a href="{:U('Home/Userinfo/orderRecycle')}">订单回收站</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的钱包</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的理财</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>优惠特权</dt>
+                <dd><a href="">钻石会员</a></dd>
+                <dd><a href="">我的蘑豆</a></dd>
+                <dd><a href="">现金卷</a></dd>
+                <dd><a href="">店铺优惠劵</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="{:U('Home/Userinfo/address')}">地址管理</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">安全设置</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>维权管理</dt>
+                <dd><a href="">投诉管理</a></dd>
+                <dd><a href="">举报管理</a></dd>
+                <dd><a href="">被盗举证</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt>账号设置</dt>
+                <dd><a href="{:U('Home/Userinfo/userinfo')}">基本信息</a></dd>
+                <dd><a href="{:U('Home/Userinfo/uploded')}">修改头像</a></dd>
+            </dl>
+        </div>
+
+        <!-- 主体信息修改信息页面 -->
+        <div class="info_right">
+            <!-- 地址管理 -->
+            <div class="dizhi">
+                <h2 class="addr_title">地址管理</h2>
+                <!-- 添加隐藏 -->
+                <div>
+                    <form action="adddizhi" method="post">
+                        <div class="saddspan">
+                            <span class="hover-pointer">+添加新地址</span>
+                        </div>
+                        <!-- 隐藏填写框 -->
+                        <div class="saddress_pop" style="display:none;">
+
+                            <div class="hidden1">
+                                <dl class="saddressbox">
+                                    <input type="hidden" name="id" value="" class="id">
+                                    <dt>省:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <select name="sheng" id="sheng" class="vm">
+                                            <option value="">--请选择--</option>
+                                            <foreach name="res" item="v">
+                                            <option value="{$v['id']}">{$v['name']}</option>
+                                            </foreach>
+                                        </select>
+                                        <label for="" class="">市:</label>
+                                        <select name="shi" id="shi" class="vm">
+                                            <option value="">--请选择--</option>
+                                        </select>
+                                        <label for="" class="">县区:</label>
+                                        <select name="xian" id="xian" class="vm">
+                                            <option value="">--请选择--</option>
+                                        </select>
+                                    </dd>
+                                    <dt>邮政编码:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <input type="text" name="postcode" value="" class="spostcode">
+                                    </dd>
+                                    <dt>街道地址:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <textarea name="address" id="saddress" cols="110" rows="4" class="saddress"></textarea>
+                                        <p class="prompt">请填写街道地址，最少5个字，最多不能超过100个字</p>
+                                    </dd>
+                                    <dt>收获人姓名:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <input type="text" name="name" value="" class="sname">
+                                    </dd>
+                                    <dt>手机:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <input type="text" name="phone" value="" class="sphone">
+                                    </dd>
+                                    <dd class="pt10 oper_btn">
+                                       <input type="submit" class="sconfirm_btn J_okbtn mr10">
+                                        <!-- <a href="{:U('Home/Userinfo/')}" class="sconfirm_btn J_okbtn mr10">确认地址</a> -->
+                                        <a href="javascript:;" class="scancel_btn">取消</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <!-- 隐藏展示框 -->
+                        <foreach name="data" item="v">
+                        <div class="saddr_section default" aid="53029993" style="display:block;">
+                            <input id="adr{$v['id']}" type="radio" value="{$v['id']}" class="sdefault" <if condition="$v['default'] eq 1">checked</if>>
+                            <ul class="sclearfix">
+                                <li class="s_name" data-name="{$v['name']}">{$v['name']}</li>
+                                <!-- <li class="addr" data-province="北京" data-city="北京市" data-area="朝阳区" data-street="倒萨倒萨倒萨">{$v['address']}</li> -->
+                                <li class="addr">
+                                    <span>{$v['sheng']}</span><span>{$v['shi']}</span><span>{$v['xian']}</span><span>{$v['address']}</span>
+                                </li>
+                                <li class="zcode" data-postcode="{$v['postcode']}">{$v['postcode']}</li>
+                                <li class="mobile" data-phone="{$v['phone']}">{$v['phone']}</li>
+                                <li class="oper">
+                                    <a href="javascript:;" index="{$v['id']}" class="s_default">默认地址</a>
+                                    <a href="javascript:;" index="{$v['id']}" class="s_edit">编辑</a>
+                                    <a href="javascript:;" index="{$v['id']}" class="s_del" onclick="sdel($(this))">删除</a>
+                                </li>
+                               <!--  <li class="enaddr"></li> -->
+                            </ul>
+                        </div>
+                        <script>
+                        function sdel(obj){
+                            var id = obj.attr('index');
+                            var url = 'delress';
+                            // var id = $(this).attr('index');
+                            $.get(url,{id:id},function(msg){
+                                if(msg){
+                                    obj.parent().parent().parent().remove();
+                                }
+                            })
+                        }
+                        </script>
+                        </foreach>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 退货地址管理 -->
+            <div class="dizhi">
+                <h2 class="addr_title">退货地址管理</h2>
+                <!-- 添加隐藏 -->
+                <div>
+                    <form action="tuidizhi" method="post">
+                        <div class="taddspan">
+                            <span class="hover-pointer">+添加新地址</span>
+                        </div>
+                        <!-- 隐藏填写框 -->
+                        <div class="taddress_pop" style="display:none">
+                            <div class="hidden1">
+                                <dl class="taddressbox">
+                                    <input type="hidden" name="id" value="" class="tid">
+                                    <dt>省:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <select name="sheng" id="t_sheng" class="tvm">
+                                            <option value="">--请选择--</option>
+                                            <foreach name="res" item="v">
+                                            <option value="{$v['id']}">{$v['name']}</option>
+                                            </foreach>
+                                        </select>
+                                        <label for="" class="">市:</label>
+                                        <select name="shi" id="t_shi" class="tvm shi">
+                                            <option value="">--请选择--</option>
+                                        </select>
+                                        <label for="" class="">县区:</label>
+                                        <select name="xian" id="t_xian" class="tvm">
+                                            <option value="">--请选择--</option>
+                                        </select>
+                                    </dd>
+                                    <dt>邮政编码:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <input type="text" name="postcode" value="" class="tpostcode">
+                                    </dd>
+                                    <dt>街道地址:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <textarea name="address" id="" cols="110" rows="4" class="taddress"></textarea>
+                                        <p class="prompt">请填写街道地址，最少5个字，最多不能超过100个字</p>
+                                    </dd>
+                                    <dt>收获人姓名:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <input type="text" name="name" value="" id="tname">
+                                    </dd>
+                                    <dt>手机:</dt>
+                                    <dd class="">
+                                        <i>*</i>
+                                        <input type="text" name="phone" value="" class="tphone">
+                                    </dd>
+                                    <dd class="pt10 oper_btn">
+                                        <input type="submit" class="tconfirm_btn J_okbtn mr10">
+                                        <a href="javascript:;" class="tcancel_btn">取消</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <!-- 隐藏展示框 -->
+                        <foreach name="info" item="vo">
+                        <div class="taddr_section default" aid="53029993" style="display:block;" >
+                            <input id="adr{$vo['id']}" type="radio" value="{$vo['id']}" class="tdefault" <if condition="$vo['default'] eq 1">checked</if>>
+                            <ul class="tclearfix">
+                                <li class="s_name" data-name="{$vo['name']}">{$vo['name']}</li>
+                                <li class="addr">
+                                    <span>{$vo['sheng']}</span><span>{$vo['shi']}</span><span>{$vo['xian']}</span><span>{$vo['address']}</span>
+                                </li>
+                                <li class="zcode">{$vo['postcode']}</li>
+                                <li class="mobile">{$vo['phone']}</li>
+                                <li class="oper">
+                                    <a href="javascript:;" index="{$vo['id']}" class="t_default">默认地址</a>
+                                    <a href="javascript:;" index="{$vo['id']}" class="t_edit">编辑</a>
+                                    <a href="javascript:;" index="{$vo['id']}" class="t_del" onclick="tdel($(this))">删除</a>
+                                </li>
+                               <!--  <li class="enaddr"></li> -->
+                            </ul>
+                        </div>
+                        <script>
+                        function tdel(obj){
+                            var id = obj.attr('index');
+                            var url = 'delress';
+                            // var id = $(this).attr('index');
+                            $.get(url,{id:id},function(msg){
+                                if(msg){
+                                    obj.parent().parent().parent().remove();
+                                }
+                            })
+                        }
+                        </script>
+                        </foreach>
+                    </form>
+                </div>
+            </div>
+            <!-- 退货说明 -->
+            <div class="tuihuo_intro">
+                <label>退货说明：</label>
+                <div class="ctrl J_intro">
+                    <div class="show_stage">
+                        <textarea class="showedit" placeholder="退货说明中可对退货的相关事宜进行备注"></textarea>
+                    </div>
+
+                    <div class="oper">
+                        <a href="javascript:;" class="edit stage_hide">编辑</a>
+                        <a href="javascript:;" class="del nobd stage_hide">删除</a>
+                        <a href="javascript:;" class="save nobd">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+<script src="__PUBLIC__/Home/js/userinfo.js"></script>
+</block>

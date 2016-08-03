@@ -1,0 +1,24 @@
+[ 2015-12-30T11:51:49+08:00 ] ::1 /thinkphp/frues
+ERR: 无法加载模块:Frues
+
+[ 2015-12-30T19:19:29+08:00 ] 127.0.0.1 /Public/Home/js/jquery.min.map
+ERR: 无法加载模块:Public
+
+[ 2015-12-30T19:19:29+08:00 ] 127.0.0.1 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2015-12-30T19:19:38+08:00 ] 127.0.0.1 /Public/Home/js/jquery.min.map
+ERR: 无法加载模块:Public
+
+[ 2015-12-30T23:59:06+08:00 ] 192.168.122.119 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2015-12-30T23:59:08+08:00 ] 192.168.122.119 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2015-12-30T23:59:26+08:00 ] 192.168.122.119 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2015-12-30T23:59:33+08:00 ] 192.168.122.119 /favicon.ico
+ERR: 无法加载模块:Favicon
+

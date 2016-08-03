@@ -1,0 +1,41 @@
+<extend name="Sort:control" />
+<block name="asort">
+	<div class="form-group has-error" style="float:right;margin:100px 500px">
+	<form action="{:U('Home/Sort/multifile')}" method="post" enctype="multipart/form-data">
+		<div class="form-group has-error">
+		  	<label class="control-label" for="inputError">商品名:</label>
+		  	<label class="control-label" for="inputError">{$info['goodname']}</label>
+		</div>
+		<div class="form-group has-error">
+			<label class="control-label" for="inputError">多图片上传:</label>
+			<label class="control-label" for="inputError">
+			<a href="javascript:;" class="file">选择商品图片
+    			<input type="file" name="goodspic[]" placeholder="展示图片" id="form-field-5" placeholder="展示图片" multiple>
+			</a>
+			</label>
+		</div>
+		<input type="hidden" name="goodsid" value="{$info[id]}">
+		<div class="form-group has-error">
+			<button type="submit" class="btn btn-primary btn-lg btn-block" style="border-radius:5px;">确认提交</button>
+		</div>
+	</form>
+	<form action="{:U('Home/Sort/dress')}" method="post" enctype="multipart/form-data">
+		<div class="form-group has-error">
+		  	<label class="control-label" for="inputError">商品名:</label>
+		  	<label class="control-label" for="inputError">{$info['goodname']}</label>
+		</div>
+		<div class="form-group has-error">
+			<label class="control-label" for="inputError">商品穿着效果:</label>
+			<label class="control-label" for="inputError">
+			<a href="javascript:;" class="file">选择商品图片
+    			<input type="file" name="dresspic[]" placeholder="展示图片" id="form-field-5" placeholder="展示图片" multiple>
+			</a>
+			</label>
+		</div>
+		<input type="hidden" name="goodsid" value="{$info[id]}">
+		<div class="form-group has-error">
+			<button type="submit" class="btn btn-primary btn-lg btn-block" style="border-radius:5px;">确认提交</button>
+		</div>
+	</div>
+	</form>
+</block>

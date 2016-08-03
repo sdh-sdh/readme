@@ -1,0 +1,52 @@
+<extend name="Sort:control" />
+<block name="asort">
+<div class="col-xs-5" style="float:right;margin:50px 350px;">
+	<h2>修改商品</h2>
+	<form action="{:U('Home/Sort/goodupdate')}" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="{$good['id']}">
+		<div class="form-group has-error">
+			<label class="control-label" for="inputSuccess">商品分类名</label>
+			<select class="form-control" name="asortid">
+			<foreach name="asorts" item="vo">
+				<option value="{$vo['asortid']}" <if condition="$good['asortid'] eq $vo['asortid']">selected</if>>{$vo['aname']}</option>
+			</foreach>
+			</select>
+		</div>
+		<div class="form-group has-error">
+			<label class="control-label" for="inputSuccess">分类说明</label>
+			<select class="form-control" name="state">
+				<option value="0">----------请----------选----------择----------</option>
+				<foreach name="br" item="v">
+				<option value="{$v.bid}" <if condition="$good['state'] eq $v['bid']">selected</if>>{$v.name}</option>
+				</foreach>
+			</select>
+		</div>
+	   <div class="form-group has-error">
+		  	<label class="control-label" for="inputError">商品名</label>
+		  	<input type="text" class="form-control" id="inputError" name="goodname" value="{$good['goodname']}">
+		</div>
+		<div class="form-group has-error">
+		  	<label class="control-label" for="inputError">商品title</label>
+		  	<input type="text" class="form-control" id="inputError" name="title" value="{$good['title']}">
+		</div>
+		<div class="form-group has-error">
+		  	<label class="control-label" for="inputError">商品价钱</label>
+		  	<input type="text" class="form-control" id="inputError" name="nowprice" value="{$good['nowprice']}">
+		</div>
+		<div class="form-group has-error">
+			<a href="javascript:;" class="file">选择商品图片
+    			<input type="file" name="goodpic">
+    			<img src="__ROOT__{$good['goodpic']}" alt="" width="40">
+			</a>
+		</div>
+		<div class="form-group has-error">
+			<label class="control-label" for="inputError">商品描述</label>
+    			<textarea name="describe" class="form-control" cols="75" rows="5">{$good['describe']}</textarea>
+			</a>
+		</div>
+		<div class="form-group has-error">
+			<button type="submit" class="btn btn-primary btn-lg btn-block">确认提交</button>
+		</div>
+	</form>
+</div>
+</block>

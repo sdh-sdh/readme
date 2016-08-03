@@ -1,0 +1,45 @@
+<div class="col-xs-12 clear-padding">
+    <div class="panel panel-default" style="border: 0">
+        <div class="panel-body">
+            <a href="javascript:void(0);">
+                <b>全部评论({$commentNum})</b>
+            </a>
+        </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+            <foreach name="comment" item="vo">
+                <if condition="is_numeric($key)">
+                    <li class="list-group-item" style="min-height: 100px;">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object img-circle" data-src="holder.js/64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABkElEQVR4Xu2YMY6EMAxFEwlKahp6qLn/GajhCDQ0lCCxSlZZZS1ARGSYSLypYCay459vPwY9TdOmXvzRCIADaAFmwItnoGIIQgEoAAWgABR4sQJgEAyCQTAIBl8MAf4MgUEwCAbBIBgEgy9WAAzGwOA8z6rrOrUsi/VSnueqbVtVFIW9d7+ba/97abxYcUIMfdsBfnFN06i+721+V6hflBTG32isOCHFm7VRBZCn64oqy1KN4/hPmKPT33NJSJyvCeDs77eAuTat4QtQ17UahsG2S1VVVhhznWWZ3fu6rn81OMfsxTlrpRARojvAbXbbfh8vtNZKtsaZMM4BV+K4GRNSsFz7MQFMIv+0XWJ5qrLgvfuzOHdF+KgAchDK4vZa40gQU+hVmoQ44rYAJtlVfMle92eAcYY86SOcmjhnRHlcgJCEqa2N4oDUigrZDwLEeBQOUTy1tTgAB/BOkHeCvBNMbTI/uR8oAAWgABSAAk9O3dRyQQEoAAWgABRIbTI/uR8oAAWgABSAAk9O3dRy/QDwoQCf5JU+PwAAAABJRU5ErkJggg==" style="width: 50px; height: 50px;">
+                            </a>
+                            <div class="media-body">
+                                <span class="media-heading font-16">用户名{$vo.userid}</span>
+                                <span class="pull-right">{$vo.ctime}</span>
+                                <br>
+                                {$vo.content}
+                            </div>
+                        </div>
+                    </li>
+                </if>
+
+            </foreach>
+        </ul>
+    </div>
+    <div id="pages" class="col-xs-6 col-xs-offset-3">
+        {$comment.page}
+    </div>
+    <script>
+        $('#pages').on("click", 'a', function () {
+            var url = $(this).attr('href');
+
+            $.get(url, {}, function(msg){
+                $('#comments').empty().append(msg);
+            }, 'html');
+
+            return false;
+        });
+    </script>
+</div>

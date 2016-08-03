@@ -1,0 +1,357 @@
+<extend name="Index:index"/>
+<!-- 界面css样式 -->
+<block name="css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/info.css">
+</block>
+
+<block name="indexNavbar"></block>
+
+<!-- 个人信息主体界面 -->
+<block name="main">
+    <div class="info">
+        <!-- 主体信息选项部分 -->
+        <div class="info_left">
+            <!-- 头像、等级 -->
+            <div class="left_img">
+                <img src="__ROOT__/{$data[0]['userpic']}" alt="">
+                <p>{$data[0]['nickname']}</p>
+
+                <div class="col-xs-5 8e"></div>
+                <span class="vip_level0"></span>
+            </div>
+            <!-- 详细信息选项 -->
+            <!-- 详细信息选项 -->
+            <dl class="mu_nav">
+                <dt>我的订单</dt>
+                <dd><a href="{:U('Home/Userinfo/order')}">全部订单</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>1))}">待付款</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>2))}">待收货</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>3))}">待评价</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>4))}">退货退款</a></dd>
+                <dd><a href="{:U('Home/Userinfo/orderRecycle')}">订单回收站</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的钱包</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的理财</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>优惠特权</dt>
+                <dd><a href="">钻石会员</a></dd>
+                <dd><a href="">我的蘑豆</a></dd>
+                <dd><a href="">现金卷</a></dd>
+                <dd><a href="">店铺优惠劵</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="{:U('Home/Userinfo/address')}">地址管理</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">安全设置</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>维权管理</dt>
+                <dd><a href="">投诉管理</a></dd>
+                <dd><a href="">举报管理</a></dd>
+                <dd><a href="">被盗举证</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt>账号设置</dt>
+                <dd><a href="{:U('Home/Userinfo/userinfo')}">基本信息</a></dd>
+                <dd><a href="{:U('Home/Userinfo/uploded')}">修改头像</a></dd>
+            </dl>
+        </div>
+
+        <!-- <block name="right"> -->
+        <!-- 主体信息修改信息页面 -->
+        <div class="info_right">
+            <div class="right_main">
+            <!-- <block name="right"> -->
+                <!-- 个人基本资料 -->
+                <div class="right_title">
+                    <span>基本资料</span>
+                </div>
+                <form action="__APP__/Home/Userinfo/userInfoUpdate" method="post">
+                    <div id="setting_form" class="right_basic">
+                        <dl>
+                            <dd>昵称：</dd>
+                                <dt class="unick">
+                                    <input class="r3" type="text" value="{$data[0]['nickname']}" name="nickname" id="unick">
+                                    <div class="iner"></div>
+                                </dt>
+                            <dd>性别：</dd>
+                                <dt class="sex" style="line-height:30px;">
+                                    <input id="" type="radio" style="margin-right:5px" value="0" name="sex" <if condition="$data[0]['sex'] eq 0">checked</if> />
+                                    女
+                                    <input id="" type="radio" value="1" name="sex" <if condition="$data[0]['sex'] eq 1">checked</if> />
+                                    男
+                                     <input id="" type="radio" value="2" name="sex" <if condition="$data[0]['sex'] eq 2">checked</if> />保密
+                                </dt>
+                            <dd>个人博客：</dd>
+                                <dt class="weibo">
+                                    <input class="r3" type="text" name="email" value="{$data[0]['email']}">
+                                </dt>
+                            <dd>所在地：</dd>
+                                <dt class="location">
+                                    <select name="privence" id="sheng">
+                                        <option value="">省份</option>
+                                    <foreach name="res" item="v">
+                                        <option value="{$v.id}">{$v.name}</option>
+                                    </foreach>
+                                    </select>
+                                    <select name="city" id="shi">
+                                        <option value="">地级市</option>
+                                    </select>
+                                </dt>
+                            <dd>生日：</dd>
+                                <dt class="birthday">
+                                    <select name="born[]">
+                                    <option>--年份--</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1990">1990</option>
+                                    <option value="1989">1989</option>
+                                    <option value="1988">1988</option>
+                                    <option value="1987">1987</option>
+                                    <option value="1986">1986</option>
+                                    <option value="1985">1985</option>
+                                    <option value="1984">1984</option>
+                                    <option value="1983">1983</option>
+                                    </select>
+                                    &nbsp;年&nbsp;
+                                    <select id="month" name="born[]">
+                                    <option>--月份--</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    </select>
+                                    &nbsp;月&nbsp;
+                                    <select id="day" name="born[]">
+                                    <option>--日期--</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    </select>
+                                    &nbsp;日&nbsp;
+                                </dt>
+                            <dd>星座：</dd>
+                                <dt class="constellation">
+                                    <select id="constellation" name="constellation">
+                                        <option id="xingzuo_name"></option>
+                                        <option value="0" <if condition="$data[0]['constellation'] eq 0">selected</if>>水瓶座</option>
+                                        <option value="1" <if condition="$data[0]['constellation'] eq 1">selected</if>>双鱼座</option>
+                                        <option value="2" <if condition="$data[0]['constellation'] eq 2">selected</if>>白羊座</option>
+                                        <option value="3" <if condition="$data[0]['constellation'] eq 3">selected</if>>金牛座</option>2
+                                        <option value="4" <if condition="$data[0]['constellation'] eq 4">selected</if>>双子座</option>
+                                        <option value="5" <if condition="$data[0]['constellation'] eq 5">selected</if>>巨蟹座</option>
+                                        <option value="6" <if condition="$data[0]['constellation'] eq 6">selected</if>>狮子座</option>
+                                        <option value="7" <if condition="$data[0]['constellation'] eq 7">selected</if>>处女座</option>
+                                        <option value="8" <if condition="$data[0]['constellation'] eq 8">selected</if>>天秤座</option>
+                                        <option value="9" <if condition="$data[0]['constellation'] eq 9">selected</if>>天蝎座</option>
+                                        <option value="10" <if condition="$data[0]['constellation'] eq 10">selected</if>>射手座</option>
+                                        <option value="11" <if condition="$data[0]['constellation'] eq 11">selected</if>>摩羯座</option>
+                                    </select>
+                                </dt>
+                            <dd>职业：</dd>
+                                <dt class="profession">
+                                    <select id="profession" name="career">
+                                        <option></option>
+                                        <option value="0" <if condition="$data[0]['career'] eq 0">selected</if>>白领</option>
+                                        <option value="1" <if condition="$data[0]['career'] eq 1">selected</if>>学生</option>
+                                        <option value="2" <if condition="$data[0]['career'] eq 2">selected</if>>时尚妈咪</option>
+                                        <option value="3" <if condition="$data[0]['career'] eq 3">selected</if>>模特</option>
+                                        <option value="4" <if condition="$data[0]['career'] eq 4">selected</if>>时尚店主</option>
+                                        <option value="5" <if condition="$data[0]['career'] eq 5">selected</if>>传媒</option>
+                                        <option value="6" <if condition="$data[0]['career'] eq 6">selected</if>>艺术</option>
+                                        <option value="7" <if condition="$data[0]['career'] eq 7">selected</if>>其他</option>
+                                    </select>
+                                </dt>
+                        </dl>
+                    </div>
+                    <!-- 身材信息 -->
+                    <div class="right_title">
+                        <span>身材信息</span>
+                        <span style="font-weight:normal;font-size:12px;padding-left:10px;">^_^ 用心填写这几项信息，会帮助蘑菇街给你推荐合适的衣服和鞋子哦~</span>
+                    </div>
+                    <div class="right_basic">
+                        <dl>
+                           <dd>身高：</dd>
+                           <dt class="posr">
+                               <input name="height" class="gray_text r3" type="text" value="{$data[0]['height']}" style="width:80px">cm
+                           </dt>
+                           <dd>体重：</dd>
+                           <dt class="posr">
+                               <input name="weight" class="gray_text r3" type="text" value="{$data[0]['weight']}" style="width:80px">kg
+                           </dt>
+                           <dd>三围：</dd>
+                           <dt class="posr">
+                               <input name="bwhB" class="gray_text r3" type="text" value="" placeholder="胸围" style="width:45px">cm
+                               <input name="bwhW" class="gray_text r3" type="text" value="" placeholder="腰围" style="width:45px">cm
+                               <input name="bwhH" class="gray_text r3 " type="text" value="" placeholder="臀围" style="width:45px">cm
+                           </dt>
+                           <dd>肤质：</dd>
+                           <dt class="posr">
+                               <select name="skin">
+                                    <option selected>请选择</option>
+                                    <option value="0" <if condition="$data[0]['skin'] eq 0">selected</if>>中性肤质</option>
+                                    <option value="1" <if condition="$data[0]['skin'] eq 1">selected</if>>干性肤质</option>
+                                    <option value="2" <if condition="$data[0]['skin'] eq 2">selected</if>>油性肤质</option>
+                                    <option value="3" <if condition="$data[0]['skin'] eq 3">selected</if>>混合性肤质</option>
+                                    <option value="4" <if condition="$data[0]['skin'] eq 4">selected</if>>敏感性肤质</option>
+                               </select>
+                            </dt>
+                            <dd>衣服尺寸：</dd>
+                            <dt class="posr">
+                                <select name="cloth">
+                                    <option selected>-请选择-</option>
+                                    <option value="0" <if condition="$data[0]['cloth'] eq 0">selected</if>>S</option>
+                                    <option value="1" <if condition="$data[0]['cloth'] eq 1">selected</if>>M</option>
+                                    <option value="2" <if condition="$data[0]['cloth'] eq 2">selected</if>>L</option>
+                                    <option value="3" <if condition="$data[0]['cloth'] eq 3">selected</if>>XL</option>
+                                </select>
+                            </dt>
+                            <dd>裤子尺寸：</dd>
+                            <dt class="posr">
+                                <select name="trousers">
+                                    <option selected>-请选择-</option>
+                                    <option value="21" <if condition="$data[0]['trousers'] eq 21">selected</if>>21</option>
+                                    <option value="22" <if condition="$data[0]['trousers'] eq 22">selected</if>>22</option>
+                                    <option value="23" <if condition="$data[0]['trousers'] eq 23">selected</if>>23</option>
+                                    <option value="24" <if condition="$data[0]['trousers'] eq 24">selected</if>>24</option>
+                                    <option value="25" <if condition="$data[0]['trousers'] eq 25">selected</if>>25</option>
+                                    <option value="26" <if condition="$data[0]['trousers'] eq 26">selected</if>>26</option>
+                                    <option value="27" <if condition="$data[0]['trousers'] eq 27">selected</if>>27</option>
+                                </select>
+                            </dt>
+                            <dd>鞋码尺寸：</dd>
+                            <dt class="posr" style="margin-bottom:30px;">
+                                <select name="shoes">
+                                    <option selected>-请选择-</option>
+                                    <option value="34" <if condition="$data[0]['shoes'] eq 34">selected</if>>34</option>
+                                    <option value="35" <if condition="$data[0]['shoes'] eq 35">selected</if>>35</option>
+                                    <option value="36" <if condition="$data[0]['shoes'] eq 36">selected</if>>36</option>
+                                    <option value="37" <if condition="$data[0]['shoes'] eq 37">selected</if>>37</option>
+                                    <option value="38" <if condition="$data[0]['shoes'] eq 38">selected</if>>38</option>
+                                    <option value="39" <if condition="$data[0]['shoes'] eq 39">selected</if>>39</option>
+                                    <option value="40" <if condition="$data[0]['shoes'] eq 40">selected</if>>40</option>
+                                </select>
+                            </dt>
+                        </dl>
+                    </div>
+                    <!-- 购买信息设置 -->
+                    <div class="right_title">
+                        <span>购买信息设置</span>
+                    </div>
+                    <div class="right_basic">
+                        <h5>把自己的购物信息展示给商家，能帮你更好的买到适合的衣服哦。</h5>
+                        <dl>
+                           <dd>设置：</dd>
+                           <dt class="posr">
+                               <select name="">
+                                    <option selected>--信息展示--</option>
+                                    <option>展示给商家</option>
+                                    <option>对商家隐藏</option>
+                               </select>
+                            </dt>
+                        </dl>
+                    </div>
+
+                    <!-- 其他信息 -->
+                    <div class="right_title">
+                        <span>其它信息</span>
+                    </div>
+                    <div class="right_basic" style="margin-boyyom:20px;">
+                        <dl>
+                            <dd>个人标签：</dd>
+                            <dt class="d_list">
+                                <input autocomplete="off" style="color:#999;width:300px;" id="user_style" name="tag" class="gray_text pstyle r3" type="text" value="{$data[0].tag}" placeholder="多个标签之间请用逗号隔开">
+                                <div class="fashion_list">
+                                    <span class="tag">
+                                        <a href="javascript:" style="color:#ff7878;font-size:14px;">小公举</a>
+                                        <a style="color:#ff683f;font-size:16px;">你是猪吗</a>
+                                        <a style="color:#ff3998;font-size:14px;">娘娘至上</a>
+                                        <a style="color:#327aff;font-size:16px;">闷骚</a>
+                                        <a style="color:#ff683f;font-size:12px;">阳光</a>
+                                        <a style="color:#327aff;font-size:12px;">光棍棍</a>
+                                        <a style="color:#76ad00;font-size:14px;">时尚</a>
+                                        <a style="color:#76ad00;font-size:14px;">what are you 弄啥类</a>
+                                        <a style="color:#84a9f4;font-size:12px;">小甜美</a>
+                                        <a style="color:#ff683f;font-size:12px;">女汉子</a>
+                                        <a style="color:#ff3998;font-size:14px;">也是没谁了</a>
+                                        <a style="color:#84a9f4;font-size:12px;">混搭</a>
+                                        <a style="color:#76ad00;font-size:12px;">小清新</a>
+                                        <a style="color:#76ad00;font-size:12px;">还有谁,说还有谁</a>
+                                        <a style="color:#ff3998;font-size:14px;">忒尴尬了</a>
+                                        <a style="color:#84a9f4;font-size:12px;">吃货</a>
+                                        <a style="color:#ff683f;font-size:12px;">颜值爆表</a>
+                                        <a style="color:#ff683f;font-size:16px;">手指控</a>
+                                        <a style="color:#327aff;font-size:16px;">长腿控</a>
+                                        <a style="color:#76ad00;font-size:12px;">盗版水货</a>
+                                    </span>
+                                </div>
+                            </dt>
+                            <dd>自我介绍：</dd>
+                            <dt>
+                                <textarea name="resume" id="d_text_int" rows="10" cols="70" class="r3" placeholder="随便写点什么,让别人了解你吧">{$data[0]['resume']}</textarea>
+                            </dt>
+                            <dd>&nbsp;&nbsp;</dd>
+                            <dt><input class="green_button r3" type="submit" name="sub" value="确认修改"></dt>
+                        </dl>
+                    </div>
+                    <!-- </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+<script src="__PUBLIC__/Home/js/userinfo.js"></script>
+</block>

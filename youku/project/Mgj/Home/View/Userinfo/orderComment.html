@@ -1,0 +1,166 @@
+<extend name="Index:index"/>
+<!-- 界面css样式 -->
+<block name="css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/info.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/orderComment.css">
+</block>
+
+<block name="indexNavbar"></block>
+
+<!-- 个人信息主体界面 -->
+<block name="main">
+    <div class="info">
+        <!-- 主体信息选项部分 -->
+        <div class="info_left">
+            <!-- 头像、等级 -->
+            <div class="left_img">
+                <img src="__ROOT__/{$order['userpic']}" alt="">
+                <p>{$order['nickname']}</p>
+
+                <div class="col-xs-5 8e"></div>
+                <span class="vip_level0"></span>
+            </div>
+            <!-- 详细信息选项 -->
+            <!-- 详细信息选项 -->
+            <dl class="mu_nav">
+                <dt>我的订单</dt>
+                <dd><a href="{:U('Home/Userinfo/order')}">全部订单</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>1))}">待付款</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>2))}">待收货</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>3))}">待评价</a></dd>
+                <dd><a href="{:U('Home/Userinfo/order',array('state'=>4))}">退货退款</a></dd>
+                <dd><a href="{:U('Home/Userinfo/orderRecycle')}">订单回收站</a></dd>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="">我的钱包</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt><a href="{:U('Home/Userinfo/address')}">地址管理</a></dt>
+            </dl>
+            <dl class="mu_nav">
+                <dt>账号设置</dt>
+                <dd><a href="{:U('Home/Userinfo/userinfo')}">基本信息</a></dd>
+                <dd><a href="{:U('Home/Userinfo/uploded')}">修改头像</a></dd>
+            </dl>
+        </div>
+
+        <!-- 主体信息修改信息页面 -->
+        <div class="info_right">
+            <div class="right_main">
+            <div class="rightCloumns span9">
+                <div class="span9 area_r">
+                    <div class="box2">
+                        <div class="focus pd12 clearfix" style="border:none;">
+                            <div class="property">
+                            <foreach name="order['myattr']" item="stor">
+                                <h1>{$stor['goodname']}</h1>
+                                <p>打折价：<span class="price"><span id="goodspricediv">{$stor['nowprice']}</span>元</span></p>
+                            </foreach>
+                                <p></p>
+                                <p><span class="scores">商品编码：<em>+{$order['ordernum']} </em></span></p>
+                                <p>{$stor['attr_v'][0]}</p>
+                                <p>{$stor['attr_v'][1]}</p>
+                                <p>{$stor['attr_v'][2]}</p>
+                                <style>
+                                    #attr{padding:8px;}
+                                    #attr .item a {
+                                        background: none repeat scroll 0 0 #fff;
+                                        float: left;
+                                        padding: 5px 6px;
+                                    }
+                                    #attr .item a:hover {
+                                        padding: 3px 5px;
+                                    }
+                                </style>
+                                <!--<p class="mg20b">购买数量:-->
+                                    <!--<input id="buynum" class="field_num" type="text" maxlength="4"   value="{$order['number']}" name="number[]">-->
+                                <!--</p>-->
+                            </div>
+                            <div class="imageViewerFrame">
+                                <div class="imgTop">
+                                    <!--图片放大镜-->
+                                    <img id="imgLens" src="__ROOT__{$stor['goodpic']}" width="245" height="240" />
+                                </div>
+                                <div class="imgList clearfix">
+                                </div>
+                                <div style="clear:both"></div>
+                            </div>
+                            <div class="blank"></div>
+                        </div>
+                        <div class="focus pd12 t_l">
+                            <div class="comment_show pd12">
+                                <p class="head_ttlm clearfix">
+                                    <span class="ttlm">我要评论</span>
+                                </p>
+                                <div class="blank"></div>
+                                <form name="commentform" action="__MODULE__/Userinfo/insertComment" method="post">
+                                    <input type="hidden" name="orderid" value="{$order.id}">
+                                    <input type="hidden" name="gid" value="{$stor.id}">
+
+                                    <table class="tab_comt" width="100%">
+                                        <tbody>
+                                        <tr>
+                                            <th width="100">评论星级：</th>
+                                            <td style="height:auto;">
+                                            <div class="pro_rating">
+                                                <input type="hidden" name="score" value="">
+                                                <ul class="rating nostar">
+                                                    <li class="one"><a href="#" title="1">1</a></li>
+                                                    <li class="two"><a href="#" title="2">2</a></li>
+                                                    <li class="three"><a href="#" title="3">3</a></li>
+                                                    <li class="four"><a href="#" title="4">4</a></li>
+                                                    <li class="five"><a href="#" title="5">5</a></li>
+                                                </ul>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>评论内容: </th>
+                                            <td>
+                                            <textarea class="field_area span5" style="overflow:auto; resize: none;" name="content"rows="10"></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td>
+                                                <a href="javascript:void(0);" id="goreply" name="reply"><img src="__PUBLIC__/Home/images/btn_sendComment.gif"/></a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+<script src="__PUBLIC__/Home/js/jquery-1.11.3.min.js"></script>
+<script src="__PUBLIC__/Home/js/userinfo.js"></script>
+<script type="text/javascript">
+    /*商品评分效果*/
+    $(function(){
+        //通过修改样式来显示不同的星级
+        $("ul.rating li a").click(function(){
+             var title = $(this).attr("title");
+            $("input[name='score']").val(title);
+             var cl = $(this).parent().attr("class");
+             $(this).parent().parent().removeClass().addClass("rating "+cl+"star");
+             $(this).blur();//去掉超链接的虚线框
+             return false;
+        });
+
+        $("#gobuy").click(function(){
+            $("form[name='buygoods']").submit();
+        });
+        $("#goreply").click(function(){
+            $("form[name='commentform']").submit();
+        });
+    })
+</script>
+</block>

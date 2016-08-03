@@ -1,0 +1,25 @@
+
+<div class="pageContent">	<!--userlist指显示用户信息的列表页-->
+	<form method="post" action="__URL__/insert/navTabId/listlink/callbackType/closeCurrent"  class="pageForm required-validate" 
+		onsubmit="return validateCallback(this,dialogAjaxDone);"><?php  //窗体组件采用这个 iframeCallback(this, navTabAjaxDone); ?>
+		<div class="pageFormContent" layoutH="60">
+			<dl>
+				<dt>网站名：</dt>
+				<dd><input type="text" class="required"  style="width:100%" name="linktitle"/></dd>
+			</dl>
+			<dl>
+				<dt>网址：</dt>
+				<dd><input  type="text" class="required" id="mypassid"  style="width:100%" name="linkurl"/></dd>
+			</dl>
+			
+		</div>
+		
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">添加</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+</div>
+

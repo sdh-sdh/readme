@@ -1,0 +1,56 @@
+<extend name="Sort:control" />
+<block name="asort">
+	<div id="J_Page" class="xd-manage-content fl">
+		<div class="xd-header" data-reactid=".1.0"><h1 class="xd-title" data-reactid=".1.0.0">最新消息</h1></div>
+		<div class="message-list">
+			<table data-reactid=".1.1.0">
+				<thead data-reactid=".1.1.0.0">
+					<tr>
+						<th class="title" >标题</th>
+						<th class="desc" >摘要</th>
+						<th class="date" >日期</th>
+					</tr>
+				</thead>
+				<tbody data-reactid=".1.1.0.1">
+				<foreach name="not" item="vo">
+					<tr data-reactid=".1.1.0.1.0">
+						<td class="title">
+							<a href="{:U('Home/Sort/notice',array('id'=>$vo['id']))}" target="_blank" class="title-con" data-reactid=".1.1.0.1.0.0.0">{$vo['storetitle']}</a>
+						</td>
+						<td class="desc">
+							<a href="{:U('Home/Sort/notice',array('id'=>$vo['id']))}" target="_blank" class="desc-con" data-reactid=".1.1.0.1.0.1.0">{$vo['storedigest']}</a>
+						</td>
+						<td class="date">
+							<span data-reactid=".1.1.0.1.0.2.0">{:date('Y-m-d H:i:s',$vo['storetime'])}</span>
+						</td>
+					</tr>
+					</foreach>
+				</tbody>
+			</table>
+		</div>
+		</div>
+		<div class="col-md-5"></div><div id="pages">{$pages}</div>
+		<style type="text/css">
+		     #pages a, #pages span{
+		        background-color: #fff;
+		        border: 1px solid #ddd;
+		        color: #337ab7;
+		        float: left;
+		        line-height: 1.42857;
+		        margin-left: -1px;
+		        padding: 6px 12px;
+		        position: relative;
+		        text-decoration: none;
+		     }  
+		     #pages span{
+		        background-color: #337ab7;
+		        border-color: #337ab7;
+		        color: #fff;
+		        cursor:pointer;
+		        z-index: 2;
+		     }
+		</style>
+</block>
+<block name="arr">
+
+</block>
